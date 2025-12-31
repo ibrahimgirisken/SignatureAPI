@@ -9,7 +9,7 @@ namespace SignatureAPI.Domain.Entities.Common
     public class BaseEntity
     {
         public Guid Id { get; set; }
-        public DateTime CreateDate { get; set; } = DateTime.Now;
-        virtual public DateTime? UpdateDate { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        virtual public DateTime? UpdatedDate { get; set; }
     }
 }
