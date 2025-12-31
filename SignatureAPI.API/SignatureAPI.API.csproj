@@ -10,4 +10,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SignatureAPI.Application\SignatureAPI.Application.csproj" />
+    <ProjectReference Include="..\SignatureAPI.Persistence\SignatureAPI.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>
