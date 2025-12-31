@@ -10,5 +10,6 @@ namespace SignatureAPI.Domain.Entities.Company
     public class Company:BaseEntity
     {
         public string CompanyName { get; set; }
+        public SignatureAPI.Domain.Entities.Signature.Signature Signature { get; set; }
     }
 }
