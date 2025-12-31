@@ -9,5 +9,9 @@ namespace SignatureAPI.Application.Mapping
 {
     public class MappingProfile:Profile
     {
+        public MappingProfile()
+        {
+            CreateMap<Domain.Entities.Company.Company, DTOs.Company.ResultCompany>().ReverseMap();
+        }
     }
 }

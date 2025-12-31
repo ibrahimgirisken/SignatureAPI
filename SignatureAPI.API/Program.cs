@@ -1,5 +1,8 @@
-var builder = WebApplication.CreateBuilder(args);
+using SignatureAPI.Application;
 
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddApplicationServices();
 // Add services to the container.
 
 builder.Services.AddControllers();
