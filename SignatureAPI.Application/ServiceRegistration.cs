@@ -16,7 +16,7 @@ namespace SignatureAPI.Application
         {
             collection.AddMediatR(typeof(ServiceRegistration));
             collection.AddHttpClient();
-            collection.AddAutoMapper(typeof(MappingProfile).Assembly);
+            collection.AddAutoMapper(typeof(MappingProfile));
         }
     }
 }

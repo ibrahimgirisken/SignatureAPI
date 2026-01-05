@@ -28,6 +28,10 @@ namespace SignatureAPI.Persistence.Context
                 .HasForeignKey<Signature>(s=>s.CompanyId);
 
             modelBuilder.Entity<Signature>()
+               .HasIndex(s => s.CompanyId)
+               .IsUnique();
+
+            modelBuilder.Entity<Signature>()
                 .HasMany(s=>s.SignatureAssets)
                 .WithOne(sa => sa.Signature)
                 .HasForeignKey(sa => sa.SignatureId);

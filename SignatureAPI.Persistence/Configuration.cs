@@ -11,7 +11,7 @@ namespace SignatureAPI.Persistence
                 ConfigurationManager configurationManager = new();
                 try
                 {
-                    configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../Presentation/SignatureAPI.API"));
+                    configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../SignatureAPI/SignatureAPI.API"));
                     configurationManager.AddJsonFile("appsettings.json");
                 }
                 catch (Exception)
