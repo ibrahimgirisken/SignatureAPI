@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
+using SignatureAPI.Application.DTOs.Company;
 using SignatureAPI.Application.Repositories.Company;
 using System;
 using System.Collections.Generic;
@@ -11,17 +13,21 @@ namespace SignatureAPI.Application.Features.Queries.Company.GetAllCompany
     public class GetAllCompanyQueryHandler:IRequestHandler<GetAllCompanyQueryRequest, GetAllCompanyQueryResponse>
     {
         readonly ICompanyReadRepository _companyReadRepository;
-        readonly IMediator _mediator;
-
-        public GetAllCompanyQueryHandler(ICompanyReadRepository companyReadRepository, IMediator mediator)
+        readonly IMapper _mapper;
+        public GetAllCompanyQueryHandler(ICompanyReadRepository companyReadRepository, IMapper mapper = null)
         {
             _companyReadRepository = companyReadRepository;
-            _mediator = mediator;
+            _mapper = mapper;
         }
 
-        public Task<GetAllCompanyQueryResponse> Handle(GetAllCompanyQueryRequest request, CancellationToken cancellationToken)
+        public async Task<GetAllCompanyQueryResponse> Handle(GetAllCompanyQueryRequest request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var companies =_companyReadRepository.GetAll();
+            var companiesDto=_mapper.Map<List<ResultCompanyDTO>>(companies);
+            return new()
+            {
+                Companies = companiesDto
+            };
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SignatureAPI.Application.DTOs.Company;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace SignatureAPI.Application.Features.Queries.Company.GetAllCompany
 {
     public class GetAllCompanyQueryResponse
     {
+        public List<ResultCompanyDTO> Companies{ get; set; }
     }
 }

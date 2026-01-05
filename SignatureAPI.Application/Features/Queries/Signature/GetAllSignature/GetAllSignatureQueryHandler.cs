@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
+using SignatureAPI.Application.DTOs.Signature;
 using SignatureAPI.Application.Repositories.SignatureAsset;
 using System;
 using System.Collections.Generic;
@@ -11,17 +13,22 @@ namespace SignatureAPI.Application.Features.Queries.Signature.GetAllSignature
     public class GetAllSignatureQueryHandler:IRequestHandler<GetAllSignatureQueryRequest, GetAllSignatureQueryResponse>
     {
         readonly ISignatureAssetReadRepository _signatureAssetReadRepository;
-        readonly IMediator _mediator;
+        readonly IMapper _mapper;
 
-        public GetAllSignatureQueryHandler(ISignatureAssetReadRepository signatureAssetReadRepository, IMediator mediator)
+        public GetAllSignatureQueryHandler(ISignatureAssetReadRepository signatureAssetReadRepository, IMapper mapper = null)
         {
             _signatureAssetReadRepository = signatureAssetReadRepository;
-            _mediator = mediator;
+            _mapper = mapper;
         }
 
-        public Task<GetAllSignatureQueryResponse> Handle(GetAllSignatureQueryRequest request, CancellationToken cancellationToken)
+        public async Task<GetAllSignatureQueryResponse> Handle(GetAllSignatureQueryRequest request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var signatures = _signatureAssetReadRepository.GetAll();
+            var signatureDto=_mapper.Map<List<ResultSignatureDTO>>(signatures);
+            return new()
+            {
+                Signatures = signatureDto
+            };
         }
     }
 }

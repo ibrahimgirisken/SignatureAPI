@@ -11,7 +11,10 @@ namespace SignatureAPI.Application.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<Domain.Entities.Company.Company, DTOs.Company.ResultCompany>().ReverseMap();
+            CreateMap<Domain.Entities.Company.Company, DTOs.Company.ResultCompanyDTO>().ReverseMap();
+            CreateMap<Domain.Entities.Signature.Signature, DTOs.Signature.ResultSignatureDTO>().ReverseMap();
+            CreateMap<Domain.Entities.Signature.SignatureAsset, DTOs.SignatureAsset.ResultSignatureAssetDTO>().ReverseMap();
+            CreateMap<Domain.Entities.Signature.SignatureLink, DTOs.SignatureLink.ResultSignatureLinkDTO>().ReverseMap();
         }
     }
 }

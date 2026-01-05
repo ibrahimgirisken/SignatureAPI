@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SignatureAPI.Application.DTOs.Signature;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace SignatureAPI.Application.Features.Queries.Signature.GetAllSignature
 {
     public class GetAllSignatureQueryResponse
     {
+        public List<ResultSignatureDTO> Signatures{ get; set; }
     }
 }
