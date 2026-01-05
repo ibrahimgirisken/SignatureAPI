@@ -2,11 +2,6 @@
 using MediatR;
 using SignatureAPI.Application.DTOs.Company;
 using SignatureAPI.Application.Repositories.Company;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SignatureAPI.Application.Features.Queries.Company.GetAllCompany
 {

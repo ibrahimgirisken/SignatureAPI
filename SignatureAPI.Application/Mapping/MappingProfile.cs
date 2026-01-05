@@ -1,4 +1,10 @@
 ﻿using AutoMapper;
+using SignatureAPI.Application.DTOs.Company;
+using SignatureAPI.Application.DTOs.Signature;
+using SignatureAPI.Application.DTOs.SignatureAsset;
+using SignatureAPI.Application.DTOs.SignatureLink;
+using SignatureAPI.Domain.Entities.Company;
+using SignatureAPI.Domain.Entities.Signature;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +17,10 @@ namespace SignatureAPI.Application.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<Domain.Entities.Company.Company, DTOs.Company.ResultCompanyDTO>().ReverseMap();
-            CreateMap<Domain.Entities.Signature.Signature, DTOs.Signature.ResultSignatureDTO>().ReverseMap();
-            CreateMap<Domain.Entities.Signature.SignatureAsset, DTOs.SignatureAsset.ResultSignatureAssetDTO>().ReverseMap();
-            CreateMap<Domain.Entities.Signature.SignatureLink, DTOs.SignatureLink.ResultSignatureLinkDTO>().ReverseMap();
+            CreateMap<Company, ResultCompanyDTO>().ReverseMap();
+            CreateMap<Signature, ResultSignatureDTO>().ReverseMap();
+            CreateMap<SignatureAsset, ResultSignatureAssetDTO>().ReverseMap();
+            CreateMap<SignatureLink, ResultSignatureLinkDTO>().ReverseMap();
         }
     }
 }
