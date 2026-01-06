@@ -4,6 +4,7 @@ namespace SignatureAPI.Application.DTOs.SignatureLink
 {
     public class ResultSignatureLinkDTO
     {
+        public string Id { get; set; }
         public string? LinkType { get; set; }
         public string? Url { get; set; }
         public string? Title { get; set; }

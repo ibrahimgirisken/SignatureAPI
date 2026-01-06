@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SignatureAPI.Application.DTOs.SignatureAsset;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace SignatureAPI.Application.Features.Queries.SignatureAsset.GetAllSignatu
 {
     public class GetAllSignatureAssetQueryResponse
     {
+        public List<ResultSignatureAssetDTO> SignatureAssets { get; set; }
     }
 }

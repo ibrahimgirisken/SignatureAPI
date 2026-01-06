@@ -1,27 +1,29 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
+using SignatureAPI.Application.DTOs.SignatureAsset;
 using SignatureAPI.Application.Repositories.SignatureAsset;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SignatureAPI.Application.Features.Queries.SignatureAsset.GetAllSignatureAsset
 {
     public class GetAllSignatureAssetQueryHandler : IRequestHandler<GetAllSignatureAssetQueryRequest, GetAllSignatureAssetQueryResponse>
     {
         readonly ISignatureAssetReadRepository _signatureAssetReadRepository;
-        readonly IMediator _mediator;
+        readonly IMapper _mapper;
 
-        public GetAllSignatureAssetQueryHandler(ISignatureAssetReadRepository signatureAssetReadRepository, IMediator mediator)
+        public GetAllSignatureAssetQueryHandler(ISignatureAssetReadRepository signatureAssetReadRepository, IMapper mapper)
         {
             _signatureAssetReadRepository = signatureAssetReadRepository;
-            _mediator = mediator;
+            _mapper = mapper;
         }
 
-        public Task<GetAllSignatureAssetQueryResponse> Handle(GetAllSignatureAssetQueryRequest request, CancellationToken cancellationToken)
+        public async Task<GetAllSignatureAssetQueryResponse> Handle(GetAllSignatureAssetQueryRequest request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var signatureAssetList = _signatureAssetReadRepository.GetAll();
+            var signatureAssetsDto= _mapper.Map<List<ResultSignatureAssetDTO>>(signatureAssetList);
+            return new()
+            {
+                SignatureAssets = signatureAssetsDto
+            };
         }
     }
 }

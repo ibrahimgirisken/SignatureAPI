@@ -1,27 +1,29 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
+using SignatureAPI.Application.DTOs.Signature;
 using SignatureAPI.Application.Repositories.SignatureLink;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SignatureAPI.Application.Features.Queries.SignatureLink.GetAllSignatureLink
 {
     public class GetAllSignatureLinkQueryHandler : IRequestHandler<GetAllSignatureLinkQueryRequest, GetAllSignatureLinkQueryResponse>
     {
         readonly ISignatureLinkReadRepository _signatureLinkReadRepository;
-        readonly IMediator _mediator;
+        readonly IMapper _mapper;
 
-        public GetAllSignatureLinkQueryHandler(ISignatureLinkReadRepository signatureLinkReadRepository, IMediator mediator)
+        public GetAllSignatureLinkQueryHandler(ISignatureLinkReadRepository signatureLinkReadRepository, IMapper mapper = null)
         {
             _signatureLinkReadRepository = signatureLinkReadRepository;
-            _mediator = mediator;
+            _mapper = mapper;
         }
 
-        public Task<GetAllSignatureLinkQueryResponse> Handle(GetAllSignatureLinkQueryRequest request, CancellationToken cancellationToken)
+        public async Task<GetAllSignatureLinkQueryResponse> Handle(GetAllSignatureLinkQueryRequest request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var signatureLinkList = _signatureLinkReadRepository.GetAll();
+            var signatureLinksDto = _mapper.Map<List<SignatureLinkDTO>>(signatureLinkList); // Updated type to match the expected return type
+            return new()
+            {
+                SignatureLinks = signatureLinksDto
+            };
         }
     }
 }
