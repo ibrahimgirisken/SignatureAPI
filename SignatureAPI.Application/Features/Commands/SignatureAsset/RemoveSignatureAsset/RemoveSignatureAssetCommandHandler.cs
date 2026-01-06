@@ -7,12 +7,10 @@ namespace SignatureAPI.Application.Features.Commands.SignatureAsset.RemoveSignat
     public class RemoveSignatureAssetCommandHandler:IRequestHandler<RemoveSignatureAssetCommandRequest, RemoveSignatureAssetCommandResponse>
     {
         readonly ISignatureAssetWriteRepository _signatureAssetWriteRepository;
-        readonly IMapper _mapper;
 
-        public RemoveSignatureAssetCommandHandler(ISignatureAssetWriteRepository signatureAssetWriteRepository, IMapper mapper)
+        public RemoveSignatureAssetCommandHandler(ISignatureAssetWriteRepository signatureAssetWriteRepository)
         {
             _signatureAssetWriteRepository = signatureAssetWriteRepository;
-            _mapper = mapper;
         }
 
         public Task<RemoveSignatureAssetCommandResponse> Handle(RemoveSignatureAssetCommandRequest request, CancellationToken cancellationToken)
