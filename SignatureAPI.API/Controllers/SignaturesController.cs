@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SignatureAPI.Application.Features.Queries.SignatureLink.GetAllSignatureLink;
+using SignatureAPI.Application.Features.Queries.Signature.GetAllSignature;
 
 namespace SignatureAPI.API.Controllers
 {
@@ -15,9 +15,9 @@ namespace SignatureAPI.API.Controllers
         }
 
         [HttpGet("all")]
-        public async Task<IActionResult> GetAllSignatures([FromQuery] GetAllSignatureLinkQueryRequest getAllSignatureLinkQueryRequest)
+        public async Task<IActionResult> GetAllSignatures([FromQuery] GetAllSignatureQueryRequest getAllSignatureQueryRequest)
         {
-            GetAllSignatureLinkQueryResponse response = await _mediator.Send(getAllSignatureLinkQueryRequest);
+            GetAllSignatureQueryResponse response = await _mediator.Send(getAllSignatureQueryRequest);
             return Ok(response);
         }
     }
