@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using SignatureAPI.Application.Repositories.SignatureAsset;
 
 namespace SignatureAPI.Application.Features.Commands.SignatureAsset.RemoveSignatureAsset
