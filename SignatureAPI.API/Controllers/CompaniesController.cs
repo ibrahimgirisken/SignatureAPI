@@ -41,10 +41,10 @@ namespace SignatureAPI.API.Controllers
         }
 
         [HttpDelete("delete")]
-        public async Task<IActionResult> DeleteCompany(RemoveCompanyCommandRequest removeCompanyCommandRequest)
+        public async Task<IActionResult> DeleteCompany([FromQuery] RemoveCompanyCommandRequest removeCompanyCommandRequest)
         {
             RemoveCompanyCommandResponse response = await _mediator.Send(removeCompanyCommandRequest);
-            return StatusCode((int)HttpStatusCode.OK);
+            return Ok(response);
         }
     }
 }
