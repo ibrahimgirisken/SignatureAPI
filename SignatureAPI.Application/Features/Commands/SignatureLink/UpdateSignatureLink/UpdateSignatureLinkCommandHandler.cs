@@ -20,9 +20,12 @@ namespace SignatureAPI.Application.Features.Commands.SignatureLink.UpdateSignatu
             _mapper = mapper;
         }
 
-        public Task<UpdateSignatureLinkCommandResponse> Handle(UpdateSignatureLinkCommandRequest request, CancellationToken cancellationToken)
+        public async Task<UpdateSignatureLinkCommandResponse> Handle(UpdateSignatureLinkCommandRequest request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var signatureLink = _mapper.Map<Domain.Entities.Signature.SignatureLink>(request);
+           _signatureLinkWriteRepository.Update(signatureLink);
+           await _signatureLinkWriteRepository.SaveAsync();
+            return new();
         }
     }
 

@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using SignatureAPI.Application.Repositories.SignatureAsset;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SignatureAPI.Application.Features.Commands.SignatureAsset.UpdateSignatureAsset
 {
@@ -20,9 +15,12 @@ namespace SignatureAPI.Application.Features.Commands.SignatureAsset.UpdateSignat
             _mapper = mapper;
         }
 
-        public Task<UpdateSignatureAssetCommandResponse> Handle(UpdateSignatureAssetCommandRequest request, CancellationToken cancellationToken)
+        public async Task<UpdateSignatureAssetCommandResponse> Handle(UpdateSignatureAssetCommandRequest request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var signatureAsset = _mapper.Map<Domain.Entities.Signature.SignatureAsset>(request);
+            _signatureAssetWriteRepository.Update(signatureAsset);
+            await _signatureAssetWriteRepository.SaveAsync();
+            return new();
         }
     }
 }

@@ -12,9 +12,11 @@ namespace SignatureAPI.Application.Features.Commands.SignatureLink.RemoveSignatu
             _signatureLinkWriteRepository = signatureLinkWriteRepository;
         }
 
-        public Task<RemoveSignatureLinkCommandResponse> Handle(RemoveSignatureLinkCommandRequest request, CancellationToken cancellationToken)
+        public async Task<RemoveSignatureLinkCommandResponse> Handle(RemoveSignatureLinkCommandRequest request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            await _signatureLinkWriteRepository.RemoveAsync(request.Id);
+            await _signatureLinkWriteRepository.SaveAsync();
+            return new();
         }
     }
 }

@@ -16,9 +16,12 @@ namespace SignatureAPI.Application.Features.Commands.SignatureLink.CreateSignatu
             _mapper = mapper;
         }
 
-        public Task<CreateSignatureLinkCommandResponse> Handle(CreateSignatureLinkCommandRequest request, CancellationToken cancellationToken)
+        public async Task<CreateSignatureLinkCommandResponse> Handle(CreateSignatureLinkCommandRequest request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var signatureAsset = _mapper.Map<Domain.Entities.Signature.SignatureAsset>(request);
+            await _signatureAssetWriteRepository.AddAsync(signatureAsset);
+            await _signatureAssetWriteRepository.SaveAsync();
+            return new();
         }
     }
 }

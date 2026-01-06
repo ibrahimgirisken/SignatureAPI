@@ -13,9 +13,11 @@ namespace SignatureAPI.Application.Features.Commands.SignatureAsset.RemoveSignat
             _signatureAssetWriteRepository = signatureAssetWriteRepository;
         }
 
-        public Task<RemoveSignatureAssetCommandResponse> Handle(RemoveSignatureAssetCommandRequest request, CancellationToken cancellationToken)
+        public async Task<RemoveSignatureAssetCommandResponse> Handle(RemoveSignatureAssetCommandRequest request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+           await _signatureAssetWriteRepository.RemoveAsync(request.Id);
+           await _signatureAssetWriteRepository.SaveAsync();
+            return new();
         }
     }
 }
