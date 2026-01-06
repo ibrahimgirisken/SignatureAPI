@@ -3,13 +3,16 @@ using SignatureAPI.Application.DTOs.Company;
 using SignatureAPI.Application.DTOs.Signature;
 using SignatureAPI.Application.DTOs.SignatureAsset;
 using SignatureAPI.Application.DTOs.SignatureLink;
+using SignatureAPI.Application.Features.Commands.Company.CreateCompany;
+using SignatureAPI.Application.Features.Commands.Company.UpdateCompany;
+using SignatureAPI.Application.Features.Commands.Signature.CreateSignature;
+using SignatureAPI.Application.Features.Commands.Signature.UpdateSignature;
+using SignatureAPI.Application.Features.Commands.SignatureAsset.CreateSignatureAsset;
+using SignatureAPI.Application.Features.Commands.SignatureAsset.UpdateSignatureAsset;
+using SignatureAPI.Application.Features.Commands.SignatureLink.CreateSignatureLink;
+using SignatureAPI.Application.Features.Commands.SignatureLink.UpdateSignatureLink;
 using SignatureAPI.Domain.Entities.Company;
 using SignatureAPI.Domain.Entities.Signature;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SignatureAPI.Application.Mapping
 {
@@ -17,10 +20,21 @@ namespace SignatureAPI.Application.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<Company, ResultCompanyDTO>().ReverseMap();
-            CreateMap<Signature, ResultSignatureDTO>().ReverseMap();
-            CreateMap<SignatureAsset, ResultSignatureAssetDTO>().ReverseMap();
+            CreateMap<Company,ResultCompanyDTO>().ReverseMap();
+            CreateMap<Company,CreateCompanyCommandRequest>().ReverseMap();
+            CreateMap<Company,UpdateCompanyCommandRequest>().ReverseMap();
+
+            CreateMap<Signature,ResultSignatureDTO>().ReverseMap();
+            CreateMap<Signature,CreateSignatureCommandRequest>().ReverseMap();
+            CreateMap<Signature,UpdateSignatureCommandRequest>().ReverseMap();
+
+            CreateMap<SignatureAsset,ResultSignatureAssetDTO>().ReverseMap();
+            CreateMap<SignatureAsset,CreateSignatureAssetCommandRequest>().ReverseMap();
+            CreateMap<SignatureAsset,UpdateSignatureAssetCommandRequest>().ReverseMap();
+
             CreateMap<SignatureLink, ResultSignatureLinkDTO>().ReverseMap();
+            CreateMap<SignatureLink, CreateSignatureLinkCommandRequest>().ReverseMap();
+            CreateMap<SignatureLink, UpdateSignatureLinkCommandRequest>().ReverseMap();
         }
     }
 }

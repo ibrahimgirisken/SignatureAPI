@@ -1,15 +1,21 @@
 ﻿using MediatR;
 using SignatureAPI.Application.DTOs.Signature;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace SignatureAPI.Application.Features.Commands.Signature.CreateSignature
+namespace SignatureAPI.Application.Features.Commands.Signature.UpdateSignature
 {
-    public class CreateSignatureCommandRequest:IRequest<CreateSignatureCommandResponse>
+    public class UpdateSignatureCommandRequest:IRequest<UpdateSignatureCommandResponse>
     {
-        public CreateSignatureCommandRequest()
+        public UpdateSignatureCommandRequest()
         {
             SignatureAssets = new List<SignatureAssetDTO>();
             SignatureLinks = new List<SignatureLinkDTO>();
         }
+        public string Id { get; set; }
         public string? Phone { get; set; }
         public string? Fax { get; set; }
         public string? Address { get; set; }

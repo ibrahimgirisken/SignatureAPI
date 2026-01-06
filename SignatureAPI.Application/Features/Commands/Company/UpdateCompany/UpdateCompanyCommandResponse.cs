@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SignatureAPI.Application.Features.Commands.Company.UpdateCompany
 {
-    internal class UpdateCompanyCommandResponse
+    public class UpdateCompanyCommandResponse
     {
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SignatureAPI.Application.Features.Commands.Company.CreateCompany
+namespace SignatureAPI.Application.Features.Commands.Signature.UpdateSignature
 {
-    public class CreateCompanyCommandResponse
+    public class UpdateSignatureCommandResponse
     {
     }
 }

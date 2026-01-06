@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SignatureAPI.Application.Features.Commands.Company.RemoveCompany
 {
-    internal class RemoveCompanyCommandResponse
+    public class RemoveCompanyCommandResponse
     {
     }
 }

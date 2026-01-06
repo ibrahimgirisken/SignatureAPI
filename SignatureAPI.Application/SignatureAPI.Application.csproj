@@ -22,8 +22,4 @@
     <ProjectReference Include="..\SignatureAPI.Domain\SignatureAPI.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Commands\Signature\UpdateSignature\" />
-  </ItemGroup>
-
 </Project>
