@@ -9,7 +9,7 @@ namespace SignatureAPI.Application.DTOs.SignatureLink
         public string? Url { get; set; }
         public string? Title { get; set; }
         public int Order { get; set; }
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
         public string? SignatureId { get; set; }
     }
 }

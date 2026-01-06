@@ -8,7 +8,7 @@ namespace SignatureAPI.Application.Features.Commands.SignatureLink.CreateSignatu
         public string? Url { get; set; }
         public string? Title { get; set; }
         public int Order { get; set; }
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; }= true;
         public string? SignatureId { get; set; }
     }
 }

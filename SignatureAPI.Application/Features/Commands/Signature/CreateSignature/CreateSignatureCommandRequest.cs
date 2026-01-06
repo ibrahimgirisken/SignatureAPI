@@ -16,7 +16,7 @@ namespace SignatureAPI.Application.Features.Commands.Signature.CreateSignature
         public string? KdvText { get; set; }
         public string? InformationText { get; set; }
         public string? EnvironmentText { get; set; }
-        public string CompanyId { get; set; }
+        public string? CompanyId { get; set; }
         public List<SignatureAssetDTO> SignatureAssets { get; set; }
         public List<SignatureLinkDTO> SignatureLinks { get; set; }
     }
