@@ -20,7 +20,8 @@ namespace SignatureAPI.Application.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<Company,ResultCompanyDTO>().ReverseMap();
+            CreateMap<Company,ResultCompanyDTO>()
+                .ForMember(d=>d.SignatureId,o=>o.MapFrom(s=>s.SignatureId.ToString()));
             CreateMap<Company,CreateCompanyCommandRequest>().ReverseMap();
             CreateMap<Company,UpdateCompanyCommandRequest>().ReverseMap();
 

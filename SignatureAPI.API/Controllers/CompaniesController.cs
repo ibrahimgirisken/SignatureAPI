@@ -30,7 +30,7 @@ namespace SignatureAPI.API.Controllers
         public async Task<IActionResult> CreateCompany(CreateCompanyCommandRequest createCompanyCommandRequest)
         {
             CreateCompanyCommandResponse response=await _mediator.Send(createCompanyCommandRequest);
-            return StatusCode((int)HttpStatusCode.Created);
+            return Ok(response);
         }
 
         [HttpPut("update")]
