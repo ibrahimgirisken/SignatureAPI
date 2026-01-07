@@ -4,6 +4,6 @@ namespace SignatureAPI.Application.Features.Commands.SignatureLink.RemoveSignatu
 {
     public class RemoveSignatureLinkCommandRequest:IRequest<RemoveSignatureLinkCommandResponse>
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
     }
 }

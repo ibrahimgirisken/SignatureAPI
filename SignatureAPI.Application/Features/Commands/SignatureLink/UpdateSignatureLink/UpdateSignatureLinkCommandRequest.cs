@@ -4,12 +4,12 @@ namespace SignatureAPI.Application.Features.Commands.SignatureLink.UpdateSignatu
 {
     public class UpdateSignatureLinkCommandRequest:IRequest<UpdateSignatureLinkCommandResponse>
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         public string? LinkType { get; set; }
         public string? Url { get; set; }
         public string? Title { get; set; }
         public int Order { get; set; }
         public bool IsActive { get; set; } = true;
-        public string? SignatureId { get; set; }
+        public Guid? SignatureId { get; set; }
     }
 }

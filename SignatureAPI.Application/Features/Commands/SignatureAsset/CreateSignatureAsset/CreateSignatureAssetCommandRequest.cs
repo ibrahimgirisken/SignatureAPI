@@ -4,10 +4,10 @@ namespace SignatureAPI.Application.Features.Commands.SignatureAsset.CreateSignat
 {
     public class CreateSignatureAssetCommandRequest:IRequest<CreateSignatureAssetCommandResponse>
     {
-        public string? SignatureType { get; set; }
+        public Guid? SignatureType { get; set; }
         public string? Url { get; set; }
         public int Order { get; set; }
         public bool IsActive { get; set; }=true;
-        public string? SignatureId { get; set; }
+        public Guid? SignatureId { get; set; }
     }
 }

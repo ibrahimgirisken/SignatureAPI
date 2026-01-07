@@ -9,6 +9,6 @@ namespace SignatureAPI.Application.Features.Commands.Company.RemoveCompany
 {
     public class RemoveCompanyCommandRequest:IRequest<RemoveCompanyCommandResponse>
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
     }
 }

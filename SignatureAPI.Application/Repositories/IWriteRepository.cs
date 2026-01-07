@@ -12,7 +12,7 @@ namespace SignatureAPI.Application.Repositories
         Task<bool> AddAsync(T model);
         Task<bool> AddRangeAsync(List<T> list);
         bool Remove(T model);
-        Task<bool> RemoveAsync(string id);
+        Task<bool> RemoveAsync(Guid id);
         bool RemoveRange(List<T> list);
         bool Update(T model);
         Task<int> SaveAsync();

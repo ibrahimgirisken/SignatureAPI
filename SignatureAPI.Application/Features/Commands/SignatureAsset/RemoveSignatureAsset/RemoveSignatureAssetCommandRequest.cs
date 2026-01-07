@@ -4,6 +4,6 @@ namespace SignatureAPI.Application.Features.Commands.SignatureAsset.RemoveSignat
 {
     public class RemoveSignatureAssetCommandRequest:IRequest<RemoveSignatureAssetCommandResponse>
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
     }
 }

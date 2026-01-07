@@ -35,9 +35,9 @@ namespace SignatureAPI.Persistence.Repositories
             return entityEntry.State == EntityState.Deleted;
         }
 
-        public async Task<bool> RemoveAsync(string id)
+        public async Task<bool> RemoveAsync(Guid id)
         {
-            T data=await Table.FirstOrDefaultAsync(e => e.Id == Guid.Parse(id));
+            T data=await Table.FirstOrDefaultAsync(e => e.Id ==id);
             return true;
         }
 

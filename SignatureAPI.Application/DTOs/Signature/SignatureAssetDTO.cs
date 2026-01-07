@@ -9,7 +9,7 @@ namespace SignatureAPI.Application.DTOs.Signature
 {
     public class SignatureAssetDTO
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         public string? SignatureType { get; set; }
         public string? Url { get; set; }
         public int Order { get; set; }

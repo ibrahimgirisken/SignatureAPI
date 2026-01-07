@@ -13,6 +13,6 @@ namespace SignatureAPI.Application.Features.Commands.SignatureAsset.UpdateSignat
         public string? Url { get; set; }
         public int Order { get; set; }
         public bool IsActive { get; set; } = true;
-        public string? SignatureId { get; set; }
+        public Guid? SignatureId { get; set; }
     }
 }
