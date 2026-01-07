@@ -11,7 +11,7 @@ namespace SignatureAPI.Domain.Entities.Signature
         public string? KdvText { get; set; }
         public string? InformationText { get; set; }
         public string? EnvironmentText { get; set; }
-        public Guid CompanyId { get; set; }
+        public Guid? CompanyId { get; set; }
         public Domain.Entities.Company.Company Company { get; set; }
         public SignatureType SignatureType { get; set; }
         public ICollection<SignatureAsset> SignatureAssets { get; set; }=new List<SignatureAsset>();

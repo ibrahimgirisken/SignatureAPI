@@ -14,6 +14,6 @@ namespace SignatureAPI.Application.DTOs.Signature
         public string? Url { get; set; }
         public int Order { get; set; }
         public bool IsActive { get; set; }
-        public string? SignatureId { get; set; }
+        public Guid? SignatureId { get; set; }
     }
 }

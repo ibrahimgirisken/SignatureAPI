@@ -3,7 +3,6 @@ using SignatureAPI.Application.Repositories;
 using SignatureAPI.Domain.Entities.Common;
 using SignatureAPI.Persistence.Context;
 using System.Linq.Expressions;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace SignatureAPI.Persistence.Repositories
 {
@@ -26,13 +25,13 @@ namespace SignatureAPI.Persistence.Repositories
             return query;
         }
 
-        public async Task<T> GetByIdAsync(string id, bool tracking = true)
+        public async Task<T> GetByIdAsync(Guid id, bool tracking = true)
         {
             var query = Table.AsQueryable();
             if (!tracking)
                 query = query.AsNoTracking();
 
-            return await query.FirstOrDefaultAsync(e=>e.Id==Guid.Parse(id));
+            return await query.FirstOrDefaultAsync(e=>e.Id==id);
         }
 
         public IQueryable<T> GetWhere(Expression<Func<T, bool>> method, bool tracking = true)
