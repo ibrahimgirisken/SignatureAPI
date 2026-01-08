@@ -8,7 +8,7 @@ namespace SignatureAPI.API.Controllers
     [ApiController]
     public class EnumsController : ControllerBase
     {
-        [HttpGet("signature--asset-types")]
+        [HttpGet("signature-asset-types")]
         public IActionResult GetSignatureTypes()
         {
             return Ok(Enum.GetValues<SignatureType>()

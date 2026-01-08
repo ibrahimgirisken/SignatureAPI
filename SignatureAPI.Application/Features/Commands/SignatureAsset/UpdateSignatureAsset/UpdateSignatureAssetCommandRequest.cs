@@ -9,6 +9,7 @@ namespace SignatureAPI.Application.Features.Commands.SignatureAsset.UpdateSignat
 {
     public class UpdateSignatureAssetCommandRequest:IRequest<UpdateSignatureAssetCommandResponse>
     {
+        public Guid Id { get; set; }
         public int? SignatureType { get; set; }
         public string? Url { get; set; }
         public int Order { get; set; }
