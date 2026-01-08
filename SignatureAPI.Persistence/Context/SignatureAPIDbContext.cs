@@ -27,20 +27,19 @@ namespace SignatureAPI.Persistence.Context
                 .WithOne(s => s.Company)
                 .HasForeignKey<Signature>(s=>s.CompanyId);
 
-            modelBuilder.Entity<Signature>()
-               .HasIndex(s => s.CompanyId)
-               .IsUnique();
+            modelBuilder.Entity<SignatureAsset>()
+                .HasOne(a=>a.Signature)
+                .WithMany(s=>s.SignatureAssets)
+                .HasForeignKey(a => a.SignatureId)
+                .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Signature>()
-                .HasMany(s=>s.SignatureAssets)
-                .WithOne(sa => sa.Signature)
-                .HasForeignKey(sa => sa.SignatureId);
+            modelBuilder.Entity<SignatureLink>()
+                .HasOne(l => l.Signature)
+                .WithMany(s => s.SignatureLinks)
+                .HasForeignKey(l => l.SignatureId)
+                .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Signature>()
-                .HasMany(s=>s.SignatureLinks)
-                .WithOne(sl=>sl.Signature)
-                .HasForeignKey(sl => sl.SignatureId);
-
+          
             base.OnModelCreating(modelBuilder);
         }
 

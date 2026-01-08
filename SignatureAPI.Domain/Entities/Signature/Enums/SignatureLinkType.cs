@@ -8,18 +8,18 @@ namespace SignatureAPI.Domain.Entities.Signature.Enums
 {
     public enum SignatureLinkType
     {
-        GoogleBusiness,
-        News,
-        DownloadCenter,
-        Academy,
-        Fair,
-        Timotech,
-        Facebook,
-        Twitter,
-        LinkedIn,
-        Instagram,
-        Youtube,
-        YoutubeLink1,
-        YoutubeLink2
+        GoogleBusiness=1,
+        News=2,
+        DownloadCenter=3,
+        Academy=4,
+        Fair=5,
+        Timotech=6,
+        Facebook=7,
+        Twitter=8,
+        LinkedIn=9,
+        Instagram=10,
+        Youtube=11,
+        YoutubeLink1=12,
+        YoutubeLink2=13
     }
 }

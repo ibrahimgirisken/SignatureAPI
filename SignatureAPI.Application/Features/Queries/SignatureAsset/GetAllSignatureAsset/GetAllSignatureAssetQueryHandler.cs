@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using SignatureAPI.Application.DTOs.SignatureAsset;
+using SignatureAPI.Application.DTOs.Signature;
 using SignatureAPI.Application.Repositories.SignatureAsset;
 
 namespace SignatureAPI.Application.Features.Queries.SignatureAsset.GetAllSignatureAsset
@@ -19,7 +19,7 @@ namespace SignatureAPI.Application.Features.Queries.SignatureAsset.GetAllSignatu
         public async Task<GetAllSignatureAssetQueryResponse> Handle(GetAllSignatureAssetQueryRequest request, CancellationToken cancellationToken)
         {
             var signatureAssetList = _signatureAssetReadRepository.GetAll();
-            var signatureAssetsDto= _mapper.Map<List<ResultSignatureAssetDTO>>(signatureAssetList);
+            var signatureAssetsDto= _mapper.Map<List<SignatureAssetDTO>>(signatureAssetList);
             return new()
             {
                 SignatureAssets = signatureAssetsDto

@@ -4,7 +4,7 @@ namespace SignatureAPI.Application.DTOs.Signature
     public class SignatureLinkDTO
     {
         public Guid Id { get; set; }
-        public string? LinkType { get; set; }
+        public int? LinkType { get; set; }
         public string? Url { get; set; }
         public string? Title { get; set; }
         public int Order { get; set; }

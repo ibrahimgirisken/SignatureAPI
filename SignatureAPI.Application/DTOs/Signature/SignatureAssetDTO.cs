@@ -1,16 +1,9 @@
-﻿using SignatureAPI.Domain.Entities.Signature.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SignatureAPI.Application.DTOs.Signature
+﻿namespace SignatureAPI.Application.DTOs.Signature
 {
     public class SignatureAssetDTO
     {
         public Guid Id { get; set; }
-        public string? SignatureType { get; set; }
+        public int? SignatureType { get; set; }
         public string? Url { get; set; }
         public int Order { get; set; }
         public bool IsActive { get; set; }

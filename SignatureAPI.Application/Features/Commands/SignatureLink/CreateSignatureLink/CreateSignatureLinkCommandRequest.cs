@@ -4,7 +4,7 @@ namespace SignatureAPI.Application.Features.Commands.SignatureLink.CreateSignatu
 {
     public class CreateSignatureLinkCommandRequest:IRequest<CreateSignatureLinkCommandResponse>
     {
-        public string? LinkType { get; set; }
+        public int? LinkType { get; set; }
         public string? Url { get; set; }
         public string? Title { get; set; }
         public int Order { get; set; }

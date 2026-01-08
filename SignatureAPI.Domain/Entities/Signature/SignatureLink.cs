@@ -15,7 +15,7 @@ namespace SignatureAPI.Domain.Entities.Signature
         public string? Title { get; set; }
         public int Order { get; set; }
         public bool IsActive { get; set; }
-        public Guid? SignatureId { get; set; }
+        public Guid SignatureId { get; set; }
         public Signature Signature { get; set; }
     }
 }

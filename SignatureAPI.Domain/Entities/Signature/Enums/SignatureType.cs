@@ -9,14 +9,14 @@ namespace SignatureAPI.Domain.Entities.Signature.Enums
 {
     public enum SignatureType
     {
-        CompanyLogo,
-        GoogleLogo,
-        YoutubeLogo,
-        TimotechLogo,
-        AcademyLogo,
-        DownloadCenterLogo,
-        FairImage,
-        YoutubeVideoImage,
-        EnvironmentLogo
+        CompanyLogo=1,
+        GoogleLogo=2,
+        YoutubeLogo=3,
+        TimotechLogo=4,
+        AcademyLogo=5,
+        DownloadCenterLogo=6,
+        FairImage=7,
+        YoutubeVideoImage=8,
+        EnvironmentLogo=9
     }
 }

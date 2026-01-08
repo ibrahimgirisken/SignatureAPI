@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using SignatureAPI.Application.DTOs.Company;
 using SignatureAPI.Application.DTOs.Signature;
-using SignatureAPI.Application.DTOs.SignatureAsset;
-using SignatureAPI.Application.DTOs.SignatureLink;
 using SignatureAPI.Application.Features.Commands.Company.CreateCompany;
 using SignatureAPI.Application.Features.Commands.Company.UpdateCompany;
 using SignatureAPI.Application.Features.Commands.Signature.CreateSignature;
@@ -29,11 +27,11 @@ namespace SignatureAPI.Application.Mapping
             CreateMap<Signature,CreateSignatureCommandRequest>().ReverseMap();
             CreateMap<Signature,UpdateSignatureCommandRequest>().ReverseMap();
 
-            CreateMap<SignatureAsset,ResultSignatureAssetDTO>().ReverseMap();
+            CreateMap<SignatureAsset,SignatureAssetDTO>().ReverseMap();
             CreateMap<SignatureAsset,CreateSignatureAssetCommandRequest>().ReverseMap();
             CreateMap<SignatureAsset,UpdateSignatureAssetCommandRequest>().ReverseMap();
 
-            CreateMap<SignatureLink, ResultSignatureLinkDTO>().ReverseMap();
+            CreateMap<SignatureLink, SignatureLinkDTO>().ReverseMap();
             CreateMap<SignatureLink, CreateSignatureLinkCommandRequest>().ReverseMap();
             CreateMap<SignatureLink, UpdateSignatureLinkCommandRequest>().ReverseMap();
         }

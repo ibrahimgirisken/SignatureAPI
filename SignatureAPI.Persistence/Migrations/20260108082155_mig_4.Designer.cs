@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SignatureAPI.Persistence.Context;
 
@@ -10,9 +11,11 @@ using SignatureAPI.Persistence.Context;
 namespace SignatureAPI.Persistence.Migrations
 {
     [DbContext(typeof(SignatureAPIDbContext))]
-    partial class SignatureAPIDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260108082155_mig_4")]
+    partial class mig_4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,7 +54,7 @@ namespace SignatureAPI.Persistence.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("longtext");
 
-                    b.Property<Guid>("CompanyId")
+                    b.Property<Guid?>("CompanyId")
                         .HasColumnType("char(36)");
 
                     b.Property<DateTime>("CreatedDate")
@@ -71,6 +74,9 @@ namespace SignatureAPI.Persistence.Migrations
 
                     b.Property<string>("Phone")
                         .HasColumnType("longtext");
+
+                    b.Property<int>("SignatureType")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime(6)");
@@ -158,9 +164,7 @@ namespace SignatureAPI.Persistence.Migrations
                 {
                     b.HasOne("SignatureAPI.Domain.Entities.Company.Company", "Company")
                         .WithOne("Signature")
-                        .HasForeignKey("SignatureAPI.Domain.Entities.Signature.Signature", "CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SignatureAPI.Domain.Entities.Signature.Signature", "CompanyId");
 
                     b.Navigation("Company");
                 });
