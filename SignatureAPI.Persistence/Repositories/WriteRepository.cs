@@ -37,7 +37,10 @@ namespace SignatureAPI.Persistence.Repositories
 
         public async Task<bool> RemoveAsync(Guid id)
         {
-            T data=await Table.FirstOrDefaultAsync(e => e.Id ==id);
+            var data=await Table.FirstOrDefaultAsync(e => e.Id ==id);
+            if (data == null)
+                return false;
+            Table.Remove(data);
             return true;
         }
 
