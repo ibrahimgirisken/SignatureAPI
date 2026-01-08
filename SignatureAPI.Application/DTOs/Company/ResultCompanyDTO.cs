@@ -5,7 +5,6 @@ namespace SignatureAPI.Application.DTOs.Company
     {
         public Guid Id { get; set; }
         public string? CompanyName { get; set; }
-        public Guid? SignatureId { get; set; }
 
     }
 }

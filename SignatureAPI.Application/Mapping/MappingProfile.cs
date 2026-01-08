@@ -18,12 +18,11 @@ namespace SignatureAPI.Application.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<Company,ResultCompanyDTO>()
-                .ForMember(d=>d.SignatureId,o=>o.MapFrom(s=>s.SignatureId.ToString()));
+            CreateMap<Company, ResultCompanyDTO>();
             CreateMap<Company,CreateCompanyCommandRequest>().ReverseMap();
             CreateMap<Company,UpdateCompanyCommandRequest>().ReverseMap();
 
-            CreateMap<Signature,ResultSignatureDTO>().ReverseMap();
+            CreateMap<Signature,SignatureDTO>().ReverseMap();
             CreateMap<Signature,CreateSignatureCommandRequest>().ReverseMap();
             CreateMap<Signature,UpdateSignatureCommandRequest>().ReverseMap();
 

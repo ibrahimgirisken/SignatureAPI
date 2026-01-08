@@ -2,12 +2,6 @@
 using SignatureAPI.Domain.Entities.Common;
 using SignatureAPI.Domain.Entities.Company;
 using SignatureAPI.Domain.Entities.Signature;
-using SignatureAPI.Domain.Entities.Signature.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SignatureAPI.Persistence.Context
 {

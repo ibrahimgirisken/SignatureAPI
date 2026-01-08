@@ -10,11 +10,6 @@ namespace SignatureAPI.Application.Features.Commands.Signature.UpdateSignature
 {
     public class UpdateSignatureCommandRequest:IRequest<UpdateSignatureCommandResponse>
     {
-        public UpdateSignatureCommandRequest()
-        {
-            SignatureAssets = new List<SignatureAssetDTO>();
-            SignatureLinks = new List<SignatureLinkDTO>();
-        }
         public Guid Id { get; set; }
         public string? Phone { get; set; }
         public string? Fax { get; set; }
@@ -23,7 +18,5 @@ namespace SignatureAPI.Application.Features.Commands.Signature.UpdateSignature
         public string? InformationText { get; set; }
         public string? EnvironmentText { get; set; }
         public Guid? CompanyId { get; set; }
-        public List<SignatureAssetDTO> SignatureAssets { get; set; }
-        public List<SignatureLinkDTO> SignatureLinks { get; set; }
     }
 }

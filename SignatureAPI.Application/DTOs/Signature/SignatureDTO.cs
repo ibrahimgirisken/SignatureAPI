@@ -1,7 +1,7 @@
 ﻿
 namespace SignatureAPI.Application.DTOs.Signature
 {
-    public class ResultSignatureDTO
+    public class SignatureDTO
     {
         public Guid Id { get; set; }
         public string? Phone { get; set; }

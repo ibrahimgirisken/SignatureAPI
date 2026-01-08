@@ -19,7 +19,7 @@ namespace SignatureAPI.Application.Features.Queries.Signature.GetAllSignature
         public async Task<GetAllSignatureQueryResponse> Handle(GetAllSignatureQueryRequest request, CancellationToken cancellationToken)
         {
             var signatures = _signatureAssetReadRepository.GetAll();
-            var signatureDto=_mapper.Map<List<ResultSignatureDTO>>(signatures);
+            var signatureDto=_mapper.Map<List<SignatureDTO>>(signatures);
             return new()
             {
                 Signatures = signatureDto

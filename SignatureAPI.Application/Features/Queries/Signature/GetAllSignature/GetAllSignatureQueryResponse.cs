@@ -9,6 +9,6 @@ namespace SignatureAPI.Application.Features.Queries.Signature.GetAllSignature
 {
     public class GetAllSignatureQueryResponse
     {
-        public List<ResultSignatureDTO> Signatures{ get; set; }
+        public List<SignatureDTO> Signatures{ get; set; }
     }
 }

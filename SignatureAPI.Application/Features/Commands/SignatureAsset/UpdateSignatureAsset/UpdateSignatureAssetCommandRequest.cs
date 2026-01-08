@@ -9,7 +9,7 @@ namespace SignatureAPI.Application.Features.Commands.SignatureAsset.UpdateSignat
 {
     public class UpdateSignatureAssetCommandRequest:IRequest<UpdateSignatureAssetCommandResponse>
     {
-        public string? SignatureType { get; set; }
+        public int? SignatureType { get; set; }
         public string? Url { get; set; }
         public int Order { get; set; }
         public bool IsActive { get; set; } = true;
