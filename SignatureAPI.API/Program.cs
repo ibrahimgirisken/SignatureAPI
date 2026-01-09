@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using SignatureAPI.API.Extensions;
 using SignatureAPI.API.Filters;
 using SignatureAPI.Application;
 using SignatureAPI.Application.Features.Commands.Signature.CreateSignature;
@@ -40,6 +41,8 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 var app = builder.Build();
+
+app.ConfigureExceptionHandler<Program>(app.Services.GetRequiredService<ILogger<Program>>());
 
 using (var scope = app.Services.CreateScope())
 {
