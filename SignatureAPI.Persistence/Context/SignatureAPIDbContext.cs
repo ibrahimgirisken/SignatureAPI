@@ -1,14 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using SignatureAPI.Domain.Entities.Common;
 using SignatureAPI.Domain.Entities.Company;
+using SignatureAPI.Domain.Entities.Identity;
 using SignatureAPI.Domain.Entities.Signature;
+
 
 namespace SignatureAPI.Persistence.Context
 {
-    public class SignatureAPIDbContext:DbContext
+    public class SignatureAPIDbContext: IdentityDbContext<AppUser>
     {
-        public SignatureAPIDbContext(DbContextOptions<SignatureAPIDbContext> options):base(options)
-        {}
+        public SignatureAPIDbContext(DbContextOptions options) : base(options)
+        { }
         public DbSet<Company> Companies{ get; set; }
         public DbSet<Signature> Signatures { get; set; }
         public DbSet<SignatureAsset> SignatureAssets { get; set; }

@@ -2,24 +2,24 @@
 
 namespace SignatureAPI.Persistence
 {
-     static class Configuration
+    static class Configuration
     {
         static public string ConnectionString
         {
             get
             {
-                ConfigurationManager configurationManager = new();
+                var configurationBuilder = new ConfigurationBuilder();
                 try
                 {
-                    configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../SignatureAPI/SignatureAPI.API"));
-                    configurationManager.AddJsonFile("appsettings.json");
+                    configurationBuilder.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../SignatureAPI/SignatureAPI.API"));
+                    configurationBuilder.AddJsonFile("appsettings.json");
                 }
                 catch (Exception)
                 {
-
                     throw;
                 }
-                return configurationManager.GetConnectionString("MySql");
+                IConfigurationRoot configuration = configurationBuilder.Build();
+                return configuration.GetConnectionString("MySql");
             }
         }
     }
