@@ -1,7 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using SignatureAPI.API.Filters;
 using SignatureAPI.Application;
+using SignatureAPI.Application.Features.Commands.Signature.CreateSignature;
+using SignatureAPI.Application.Validators.ValidationBehavior;
 using SignatureAPI.Persistence;
 using SignatureAPI.Persistence.Context;
 using System.Text.Json.Serialization;
@@ -10,6 +14,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddPersistenceServices();
 builder.Services.AddApplicationServices();
+builder.Services.AddValidatorsFromAssembly(typeof(CreateSignatureValidator).Assembly);
+builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 // Add services to the container.
 
 builder.Services.AddCors(options => {

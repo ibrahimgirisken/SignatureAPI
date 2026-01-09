@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignatureAPI.Persistence", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignatureAPI.API", "SignatureAPI.API\SignatureAPI.API.csproj", "{45416E0F-6955-4FED-AA7F-00BB805EEC13}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignatureAPI.Infrastracture", "SignatureAPI.Infrastracture\SignatureAPI.Infrastracture.csproj", "{5576E18F-9FBA-47AD-B699-5EE6385A01C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{45416E0F-6955-4FED-AA7F-00BB805EEC13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45416E0F-6955-4FED-AA7F-00BB805EEC13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45416E0F-6955-4FED-AA7F-00BB805EEC13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5576E18F-9FBA-47AD-B699-5EE6385A01C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5576E18F-9FBA-47AD-B699-5EE6385A01C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5576E18F-9FBA-47AD-B699-5EE6385A01C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5576E18F-9FBA-47AD-B699-5EE6385A01C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,5 +54,6 @@ Global
 		{EB67B69F-E593-4DF4-9E5E-201DA18AAC96} = {8804FCEC-33F8-47A6-8A47-8C635B9393D8}
 		{4CC7A7BC-5587-45FD-BE60-D158D8C1224B} = {AC8DF50A-2D38-407E-8EA5-E6100D24176F}
 		{45416E0F-6955-4FED-AA7F-00BB805EEC13} = {EA335843-61B9-4AD6-B405-BD02701C0691}
+		{5576E18F-9FBA-47AD-B699-5EE6385A01C3} = {AC8DF50A-2D38-407E-8EA5-E6100D24176F}
 	EndGlobalSection
 EndGlobal

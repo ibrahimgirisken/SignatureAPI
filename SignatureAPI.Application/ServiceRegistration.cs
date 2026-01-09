@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using SignatureAPI.Application.Mapping;
@@ -17,6 +18,7 @@ namespace SignatureAPI.Application
             collection.AddMediatR(typeof(ServiceRegistration));
             collection.AddHttpClient();
             collection.AddAutoMapper(typeof(MappingProfile));
+            collection.AddValidatorsFromAssembly(typeof(ServiceRegistration).Assembly);
         }
     }
 }
