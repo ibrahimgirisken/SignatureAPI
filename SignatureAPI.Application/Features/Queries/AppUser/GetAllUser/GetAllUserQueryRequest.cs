@@ -9,5 +9,7 @@ namespace SignatureAPI.Application.Features.Queries.AppUser.GetAllUser
 {
     public class GetAllUserQueryRequest:IRequest<GetAllUserQueryResponse>
     {
+        public int Page { get; set; }
+        public int Size { get; set; }
     }
 }

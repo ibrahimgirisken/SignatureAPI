@@ -5,7 +5,7 @@ namespace SignatureAPI.Application.Abstractions.Services
 {
     public interface IUserService
     {
-        Task<CreateUserCommandResponse> CreateAsync();
+        Task<CreateUserCommandResponse> CreateAsync(CreateUserDTO model);
         Task UpdatePasswordAsync(string userId, string resetToken, string newPassword);
         Task<List<UserListDTO>>  GetAllUsersAsync(int page,int size);
         int TotalUserCount { get; }

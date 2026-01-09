@@ -18,11 +18,26 @@ namespace SignatureAPI.Persistence.Services
             _userManager = userManager;
         }
 
-        public int TotalUserCount => throw new NotImplementedException();
+        public int TotalUserCount => _userManager.Users.Count();
 
-        public Task<CreateUserCommandResponse> CreateAsync()
+        public async Task<CreateUserCommandResponse> CreateAsync(CreateUserDTO model)
         {
-            throw new NotImplementedException();
+            IdentityResult result = await _userManager.CreateAsync(new()
+            {
+                Id=Guid.NewGuid().ToString(),
+                UserName=model.Username,
+                Email = model.Email,
+                NameSurname = model.NameSurname
+            },model.Password);
+
+            CreateUserCommandResponse response = new() { Succeeded = result.Succeeded };
+            if (!result.Succeeded)
+                response.Message = "Kullanıcı başarıyla oluşturulmuştur.";
+            else
+                foreach (var item in result.Errors)
+                response.Message += $"{item.Code} - {item.Description}\n";
+
+            return response;
         }
 
         public async Task<List<UserListDTO>> GetAllUsersAsync(int page, int size)
