@@ -16,9 +16,9 @@ namespace SignatureAPI.API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login()
+        public async Task<IActionResult> Login(LoginUserCommandRequest loginUserCommandRequest)
         {
-            LoginUserCommandResponse response = await _mediator.Send(new LoginUserCommandRequest());
+            LoginUserCommandResponse response = await _mediator.Send(loginUserCommandRequest);
             return Ok(response);
         }
     }

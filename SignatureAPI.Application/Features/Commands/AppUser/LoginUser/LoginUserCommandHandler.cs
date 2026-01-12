@@ -13,9 +13,13 @@ namespace SignatureAPI.Application.Features.Commands.AppUser.LoginUser
             _authService = authService;
         }
 
-        public Task<LoginUserCommandResponse> Handle(LoginUserCommandRequest request, CancellationToken cancellationToken)
+        public async Task<LoginUserCommandResponse> Handle(LoginUserCommandRequest request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+          var token=await _authService.LoginAsync(request.UserNameOrEmail, request.Password,900);
+            return new LoginUserSuccessCommandResponse()
+            {
+                Token = token.AccessToken
+            };
         }
     }
 }

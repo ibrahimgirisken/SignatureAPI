@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SignatureAPI.Application\SignatureAPI.Application.csproj" />
+    <ProjectReference Include="..\SignatureAPI.Infrastracture\SignatureAPI.Infrastracture.csproj" />
   </ItemGroup>
 
 </Project>

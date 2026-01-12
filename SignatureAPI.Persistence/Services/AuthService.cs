@@ -33,7 +33,7 @@ namespace SignatureAPI.Persistence.Services
             if (result.Succeeded)
             {
                 Token token = _tokenHandler.CreateAccessToken(user, accessTokenLifeTime);
-                await _userService.UpdateRefreshTokenAsyc(token.AccessToken, user, token.Expiration, 15);
+                await _userService.UpdateRefreshTokenAsync(token.RefreshToken, user, token.Expiration, 15);
                 return token;
             }
             throw new NotFoundUserException();

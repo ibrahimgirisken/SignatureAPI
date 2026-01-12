@@ -69,10 +69,19 @@ namespace SignatureAPI.Persistence.Services
                     throw new PasswordChangeFailedException();
             }
         }
-
-        public Task UpdateRefreshTokenAsyc(object refreshToken, AppUser user, DateTime expiration, int v)
+        public async Task UpdateRefreshTokenAsync(string refreshToken, AppUser user, DateTime accessTokenDate, int addOnAccessTokenDate)
         {
-            throw new NotImplementedException();
+            if (user != null)
+            {
+                var utcAccessTokenDate = accessTokenDate.ToUniversalTime();
+                var utcRefreshTokenEndDate = utcAccessTokenDate.AddSeconds(addOnAccessTokenDate);
+
+                user.RefreshToken = refreshToken;
+                user.RefreshTokenEndDate = utcRefreshTokenEndDate;
+                await _userManager.UpdateAsync(user);
+            }
+            else
+                throw new NotFoundUserException();
         }
     }
 }

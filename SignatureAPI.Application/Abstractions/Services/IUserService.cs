@@ -9,7 +9,7 @@ namespace SignatureAPI.Application.Abstractions.Services
         Task<CreateUserCommandResponse> CreateAsync(CreateUserDTO model);
         Task UpdatePasswordAsync(string userId, string resetToken, string newPassword);
         Task<List<UserListDTO>>  GetAllUsersAsync(int page,int size);
-        Task UpdateRefreshTokenAsyc(object refreshToken, AppUser user, DateTime expiration, int v);
+        Task UpdateRefreshTokenAsync(string refreshToken, AppUser user, DateTime accessTokenDate, int addOnAccessTokenDate);
 
         int TotalUserCount { get; }
     }

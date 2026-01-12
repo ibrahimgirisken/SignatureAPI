@@ -4,6 +4,7 @@ using SignatureAPI.Application.Abstractions.Token;
 using SignatureAPI.Domain.Entities.Identity;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace SignatureAPI.Infrastracture.Services.Token
@@ -42,6 +43,14 @@ namespace SignatureAPI.Infrastracture.Services.Token
             token.AccessToken = tokenHandler.WriteToken(securityToken);
 
             return token;
+        }
+
+        public string CreateRefreshToken()
+        {
+            byte[] number = new byte[32];
+            using RandomNumberGenerator random = RandomNumberGenerator.Create();
+            random.GetBytes(number);
+            return Convert.ToBase64String(number);
         }
     }
 }
