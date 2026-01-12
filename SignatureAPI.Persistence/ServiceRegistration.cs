@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using SignatureAPI.Application.Abstractions.Services;
 using SignatureAPI.Application.Repositories.Company;
 using SignatureAPI.Application.Repositories.Signature;
 using SignatureAPI.Application.Repositories.SignatureAsset;
@@ -9,6 +10,7 @@ using SignatureAPI.Persistence.Repositories.Company;
 using SignatureAPI.Persistence.Repositories.Signature;
 using SignatureAPI.Persistence.Repositories.SignatureAsset;
 using SignatureAPI.Persistence.Repositories.SignatureLink;
+using SignatureAPI.Persistence.Services;
 
 namespace SignatureAPI.Persistence
 {
@@ -32,6 +34,8 @@ namespace SignatureAPI.Persistence
 
             services.AddScoped<ISignatureLinkReadRepository, SignatureLinkReadRepository>();
             services.AddScoped<ISignatureLinkWriteRepository, SignatureLinkWriteRepository>();
+
+            services.AddScoped<IUserService, UserService>();
         }
     }
 }

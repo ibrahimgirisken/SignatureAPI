@@ -19,7 +19,7 @@ namespace SignatureAPI.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllUsers([FromBody] GetAllUserQueryRequest getAllUserQueryRequest)
+        public async Task<IActionResult> GetAllUsers(GetAllUserQueryRequest getAllUserQueryRequest)
         {
             GetAllUserQueryResponse response=await _mediator.Send(getAllUserQueryRequest);
             return Ok(response);

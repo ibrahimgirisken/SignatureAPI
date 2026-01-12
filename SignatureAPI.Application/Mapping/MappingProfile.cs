@@ -37,6 +37,8 @@ namespace SignatureAPI.Application.Mapping
             CreateMap<SignatureLink, SignatureLinkDTO>().ReverseMap();
             CreateMap<SignatureLink, CreateSignatureLinkCommandRequest>().ReverseMap();
             CreateMap<SignatureLink, UpdateSignatureLinkCommandRequest>().ReverseMap();
+
+            CreateMap<CreateUserCommandRequest,CreateUserDTO>().ReverseMap();
         }
     }
 }
