@@ -24,7 +24,7 @@ namespace SignatureAPI.Persistence.Services
         {
             IdentityResult result = await _userManager.CreateAsync(new()
             {
-                Id=Guid.NewGuid().ToString(),
+                Id=Guid.NewGuid(),
                 UserName=model.Username,
                 Email = model.Email,
                 NameSurname = model.NameSurname

@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using SignatureAPI.Application.DTOs.Company;
 using SignatureAPI.Application.DTOs.Signature;
+using SignatureAPI.Application.DTOs.User;
+using SignatureAPI.Application.Features.Commands.AppUser.CreateUser;
 using SignatureAPI.Application.Features.Commands.Company.CreateCompany;
 using SignatureAPI.Application.Features.Commands.Company.UpdateCompany;
 using SignatureAPI.Application.Features.Commands.Signature.CreateSignature;
@@ -9,7 +11,9 @@ using SignatureAPI.Application.Features.Commands.SignatureAsset.CreateSignatureA
 using SignatureAPI.Application.Features.Commands.SignatureAsset.UpdateSignatureAsset;
 using SignatureAPI.Application.Features.Commands.SignatureLink.CreateSignatureLink;
 using SignatureAPI.Application.Features.Commands.SignatureLink.UpdateSignatureLink;
+using SignatureAPI.Application.Features.Queries.AppUser.GetAllUser;
 using SignatureAPI.Domain.Entities.Company;
+using SignatureAPI.Domain.Entities.Identity;
 using SignatureAPI.Domain.Entities.Signature;
 
 namespace SignatureAPI.Application.Mapping

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace SignatureAPI.Domain.Entities.Identity
 {
-    public class AppUser:IdentityUser
+    public class AppUser:IdentityUser<Guid>
     {
-        public string NameSurname { get; set; }
+        public string NameSurname { get; set; } = default!;
         public string? RefreshToken { get; set; }
         public DateTime? RefreshTokenEndDate { get; set; }
     }
