@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using SignatureAPI.API.Extensions;
-using SignatureAPI.API.Filters;
 using SignatureAPI.Application;
 using SignatureAPI.Application.Features.Commands.Signature.CreateSignature;
 using SignatureAPI.Application.Validators.ValidationBehavior;
@@ -38,11 +38,31 @@ builder.Services.AddControllers()
         o.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
     });
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
+builder.Services.AddSwaggerGen(setup =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "SignatureAPI", Version = "v1" });
+    var jwtSecurityScheme = new OpenApiSecurityScheme
+    {
+        BearerFormat = "JWT",
+        Name = "JWT Authentication",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = JwtBearerDefaults.AuthenticationScheme,
+        Description = "Put **_ONLY_** your JWT Bearer token on textbox below!",
 
-    c.SchemaFilter<StringEnumSchemaFilter>();
+        Reference = new OpenApiReference
+        {
+            Id = JwtBearerDefaults.AuthenticationScheme,
+            Type = ReferenceType.SecurityScheme
+        }
+    };
+
+    setup.AddSecurityDefinition(jwtSecurityScheme.Reference.Id, jwtSecurityScheme);
+
+    setup.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        { jwtSecurityScheme, Array.Empty<string>() }
+    });
+
 });
 
 var app = builder.Build();
