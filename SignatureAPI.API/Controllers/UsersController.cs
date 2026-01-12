@@ -1,8 +1,7 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SignatureAPI.Application.Features.Commands.AppUser.CreateUser;
-using SignatureAPI.Application.Features.Commands.Company.CreateCompany;
 using SignatureAPI.Application.Features.Queries.AppUser.GetAllUser;
 
 namespace SignatureAPI.API.Controllers
@@ -19,7 +18,8 @@ namespace SignatureAPI.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllUsers(GetAllUserQueryRequest getAllUserQueryRequest)
+        [Authorize(AuthenticationSchemes = "Admin")]
+        public async Task<IActionResult> GetAllUsers([FromQuery]GetAllUserQueryRequest getAllUserQueryRequest)
         {
             GetAllUserQueryResponse response=await _mediator.Send(getAllUserQueryRequest);
             return Ok(response);

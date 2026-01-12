@@ -69,5 +69,10 @@ namespace SignatureAPI.Persistence.Services
                     throw new PasswordChangeFailedException();
             }
         }
+
+        public Task UpdateRefreshTokenAsyc(object refreshToken, AppUser user, DateTime expiration, int v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using SignatureAPI.Application.DTOs.User;
 using SignatureAPI.Application.Features.Commands.AppUser.CreateUser;
+using SignatureAPI.Domain.Entities.Identity;
 
 namespace SignatureAPI.Application.Abstractions.Services
 {
@@ -8,6 +9,8 @@ namespace SignatureAPI.Application.Abstractions.Services
         Task<CreateUserCommandResponse> CreateAsync(CreateUserDTO model);
         Task UpdatePasswordAsync(string userId, string resetToken, string newPassword);
         Task<List<UserListDTO>>  GetAllUsersAsync(int page,int size);
+        Task UpdateRefreshTokenAsyc(object refreshToken, AppUser user, DateTime expiration, int v);
+
         int TotalUserCount { get; }
     }
 }
