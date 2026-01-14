@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SignatureAPI.API.Extensions;
 using SignatureAPI.Application;
@@ -11,6 +12,8 @@ using SignatureAPI.Application.Validators.ValidationBehavior;
 using SignatureAPI.Domain.Entities.Identity;
 using SignatureAPI.Persistence;
 using SignatureAPI.Persistence.Context;
+using System.Security.Claims;
+using System.Text;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -38,6 +41,25 @@ builder.Services.AddControllers()
         o.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
     });
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer("Admin", options =>
+    {
+        options.TokenValidationParameters = new()
+        {
+            ValidateAudience = true,
+            ValidateActor = true,
+            ValidateIssuer = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidAudience = builder.Configuration["Token:Audience"],
+            ValidIssuer = builder.Configuration["Token:Issuer"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:SecurityKey"])),
+            LifetimeValidator = (notBefore, expires, securityToken, validationParameters) => expires != null ? expires > DateTime.UtcNow : false,
+            NameClaimType = ClaimTypes.Name
+        };
+    });
+
 builder.Services.AddSwaggerGen(setup =>
 {
     var jwtSecurityScheme = new OpenApiSecurityScheme
