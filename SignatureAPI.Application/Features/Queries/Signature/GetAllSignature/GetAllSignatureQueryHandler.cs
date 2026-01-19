@@ -2,7 +2,6 @@
 using MediatR;
 using SignatureAPI.Application.DTOs.Signature;
 using SignatureAPI.Application.Repositories.Signature;
-using SignatureAPI.Application.Repositories.SignatureAsset;
 
 namespace SignatureAPI.Application.Features.Queries.Signature.GetAllSignature
 {
