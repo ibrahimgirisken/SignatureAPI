@@ -36,10 +36,10 @@ namespace SignatureAPI.Persistence.Repositories
 
         public IQueryable<T> GetWhere(Expression<Func<T, bool>> method, bool tracking = true)
         {
-            var query=Table.Where(method);
+            var query=Table.AsQueryable();
             if (!tracking)
                 query = Table.AsNoTracking();
-                return query;
+                return query.Where(method);
         }
     }
 }
