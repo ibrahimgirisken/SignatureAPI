@@ -3,9 +3,11 @@ using Microsoft.Extensions.DependencyInjection;
 using SignatureAPI.Application.Abstractions.Services;
 using SignatureAPI.Application.Abstractions.Token;
 using SignatureAPI.Application.Repositories.Company;
+using SignatureAPI.Application.Repositories.CompanyComponent;
 using SignatureAPI.Infrastracture.Services.Token;
 using SignatureAPI.Persistence.Context;
 using SignatureAPI.Persistence.Repositories.Company;
+using SignatureAPI.Persistence.Repositories.CompanyComponent;
 using SignatureAPI.Persistence.Services;
 
 namespace SignatureAPI.Persistence
@@ -22,6 +24,8 @@ namespace SignatureAPI.Persistence
             services.AddScoped<ICompanyReadRepository, CompanyReadRepository>();
             services.AddScoped<ICompanyWriteRepository, CompanyWriteRepository>();
 
+            services.AddScoped<ICompanyComponentReadRepository,CompanyComponentReadRepository>();
+            services.AddScoped<ICompanyComponentWriteRepository,ComponyComponentWriteRepository>();
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAuthService, AuthService>();

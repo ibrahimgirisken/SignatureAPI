@@ -17,6 +17,7 @@ namespace SignatureAPI.Application.Mapping
             CreateMap<Company,CreateCompanyCommandRequest>().ReverseMap();
             CreateMap<Company,UpdateCompanyCommandRequest>().ReverseMap();
 
+            CreateMap<CompanyComponent,ResultCompanyComponentDTO>().ReverseMap();
             CreateMap<CompanyComponent, CreateCompanyCommandRequest>().ReverseMap();
             CreateMap<CompanyComponent, UpdateCompanyCommandRequest>().ReverseMap();
 
