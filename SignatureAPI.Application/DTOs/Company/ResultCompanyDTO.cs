@@ -11,7 +11,7 @@ namespace SignatureAPI.Application.DTOs.Company
         public string? KdvText { get; set; }
         public string? InformationText { get; set; }
         public string? EnvironmentText { get; set; }
-        public List<CompanyComponentDTO> CompanyComponents { get; set; }
+        public List<CompanyComponentDTO> CompanyComponents { get; set; } = new();
 
     }
 }

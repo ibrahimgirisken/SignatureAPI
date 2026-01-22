@@ -11,7 +11,7 @@ namespace SignatureAPI.Domain.Entities.Company
         public string? KdvText { get; set; }
         public string? InformationText { get; set; }
         public string? EnvironmentText { get; set; }
-        public virtual ICollection<Entities.CompanyComponent.CompanyComponent> CompanyComponents { get; set; }
+        public virtual ICollection<Entities.CompanyComponent.CompanyComponent> CompanyComponents { get; set; } =new List<Entities.CompanyComponent.CompanyComponent>();
 
     }
 }
