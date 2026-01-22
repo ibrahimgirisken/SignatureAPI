@@ -1,17 +1,25 @@
-﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using MediatR;
+using SignatureAPI.Application.Repositories.CompanyComponent;
 
 namespace SignatureAPI.Application.Features.Commands.CompanyComponent.CreateCompanyComponent
 {
     public class CreateCompanyComponentHandler : IRequestHandler<CreateCompanyComponentRequest, CreateCompanyComponentResponse>
     {
-        public Task<CreateCompanyComponentResponse> Handle(CreateCompanyComponentRequest request, CancellationToken cancellationToken)
+        readonly IMapper _mapper;
+        readonly ICompanyComponentWriteRepository _companyComponentWriteRepository;
+
+        public CreateCompanyComponentHandler(IMapper mapper, ICompanyComponentWriteRepository companyComponentWriteRepository)
         {
-            throw new NotImplementedException();
+            _mapper = mapper;
+            _companyComponentWriteRepository = companyComponentWriteRepository;
+        }
+
+        public async Task<CreateCompanyComponentResponse> Handle(CreateCompanyComponentRequest request, CancellationToken cancellationToken)
+        {
+            var CompanyComponent= _mapper.Map<Domain.Entities.CompanyComponent.CompanyComponent>(request);
+            await _companyComponentWriteRepository.AddAsync(CompanyComponent);
+            return new();
         }
     }
 }
