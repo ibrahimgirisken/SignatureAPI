@@ -1,16 +1,17 @@
 ﻿using SignatureAPI.Domain.Entities.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SignatureAPI.Domain.Entities.Company
 {
     public class Company:BaseEntity
     {
         public string? CompanyName { get; set; }
-        public Guid? SignatureId { get; set; }
-        public SignatureAPI.Domain.Entities.Signature.Signature? Signature { get; set; }=new Signature.Signature();
+        public string? Phone { get; set; }
+        public string? Fax { get; set; }
+        public string? Address { get; set; }
+        public string? KdvText { get; set; }
+        public string? InformationText { get; set; }
+        public string? EnvironmentText { get; set; }
+        public virtual ICollection<Entities.CompanyComponent.CompanyComponent> CompanyComponents { get; set; }
+
     }
 }

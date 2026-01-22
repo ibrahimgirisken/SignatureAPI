@@ -7,7 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SignatureAPI.API.Extensions;
 using SignatureAPI.Application;
-using SignatureAPI.Application.Features.Commands.Signature.CreateSignature;
+using SignatureAPI.Application.Features.Commands.Company.CreateCompany;
 using SignatureAPI.Application.Validators.ValidationBehavior;
 using SignatureAPI.Domain.Entities.Identity;
 using SignatureAPI.Persistence;
@@ -20,7 +20,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddPersistenceServices();
 builder.Services.AddApplicationServices();
-builder.Services.AddValidatorsFromAssembly(typeof(CreateSignatureValidator).Assembly);
+builder.Services.AddValidatorsFromAssembly(typeof(CreateCompanyValidator).Assembly);
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 builder.Services.AddIdentity<AppUser,IdentityRole<Guid>>()
     .AddEntityFrameworkStores<SignatureAPIDbContext>()

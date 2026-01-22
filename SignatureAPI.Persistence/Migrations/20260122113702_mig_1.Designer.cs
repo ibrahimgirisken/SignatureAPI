@@ -11,8 +11,8 @@ using SignatureAPI.Persistence.Context;
 namespace SignatureAPI.Persistence.Migrations
 {
     [DbContext(typeof(SignatureAPIDbContext))]
-    [Migration("20260112063349_mig_6")]
-    partial class mig_6
+    [Migration("20260122113702_mig_1")]
+    partial class mig_1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -166,14 +166,29 @@ namespace SignatureAPI.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
+                    b.Property<string>("Address")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("CompanyName")
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<Guid?>("SignatureId")
-                        .HasColumnType("char(36)");
+                    b.Property<string>("EnvironmentText")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Fax")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("InformationText")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("KdvText")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime(6)");
@@ -181,6 +196,46 @@ namespace SignatureAPI.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Companies");
+                });
+
+            modelBuilder.Entity("SignatureAPI.Domain.Entities.CompanyComponent.CompanyComponent", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Label")
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TargetUrl")
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
+
+                    b.ToTable("CompanyComponents");
                 });
 
             modelBuilder.Entity("SignatureAPI.Domain.Entities.Identity.AppUser", b =>
@@ -259,118 +314,6 @@ namespace SignatureAPI.Persistence.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("SignatureAPI.Domain.Entities.Signature.Signature", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Address")
-                        .HasColumnType("longtext");
-
-                    b.Property<Guid>("CompanyId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("EnvironmentText")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Fax")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("InformationText")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("KdvText")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CompanyId")
-                        .IsUnique();
-
-                    b.ToTable("Signatures");
-                });
-
-            modelBuilder.Entity("SignatureAPI.Domain.Entities.Signature.SignatureAsset", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<int>("Order")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("SignatureId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<int>("SignatureType")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Url")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SignatureId");
-
-                    b.ToTable("SignatureAssets");
-                });
-
-            modelBuilder.Entity("SignatureAPI.Domain.Entities.Signature.SignatureLink", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<int>("LinkType")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Order")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("SignatureId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Url")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SignatureId");
-
-                    b.ToTable("SignatureLinks");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", null)
@@ -422,49 +365,20 @@ namespace SignatureAPI.Persistence.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SignatureAPI.Domain.Entities.Signature.Signature", b =>
+            modelBuilder.Entity("SignatureAPI.Domain.Entities.CompanyComponent.CompanyComponent", b =>
                 {
                     b.HasOne("SignatureAPI.Domain.Entities.Company.Company", "Company")
-                        .WithOne("Signature")
-                        .HasForeignKey("SignatureAPI.Domain.Entities.Signature.Signature", "CompanyId")
+                        .WithMany("CompanyComponents")
+                        .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Company");
                 });
 
-            modelBuilder.Entity("SignatureAPI.Domain.Entities.Signature.SignatureAsset", b =>
-                {
-                    b.HasOne("SignatureAPI.Domain.Entities.Signature.Signature", "Signature")
-                        .WithMany("SignatureAssets")
-                        .HasForeignKey("SignatureId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Signature");
-                });
-
-            modelBuilder.Entity("SignatureAPI.Domain.Entities.Signature.SignatureLink", b =>
-                {
-                    b.HasOne("SignatureAPI.Domain.Entities.Signature.Signature", "Signature")
-                        .WithMany("SignatureLinks")
-                        .HasForeignKey("SignatureId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Signature");
-                });
-
             modelBuilder.Entity("SignatureAPI.Domain.Entities.Company.Company", b =>
                 {
-                    b.Navigation("Signature");
-                });
-
-            modelBuilder.Entity("SignatureAPI.Domain.Entities.Signature.Signature", b =>
-                {
-                    b.Navigation("SignatureAssets");
-
-                    b.Navigation("SignatureLinks");
+                    b.Navigation("CompanyComponents");
                 });
 #pragma warning restore 612, 618
         }

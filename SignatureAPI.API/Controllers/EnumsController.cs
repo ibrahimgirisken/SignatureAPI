@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using SignatureAPI.Domain.Entities.Signature.Enums;
+﻿using Microsoft.AspNetCore.Mvc;
+using SignatureAPI.Domain.Entities.CompanyComponent.Enums;
+
 
 namespace SignatureAPI.API.Controllers
 {
@@ -11,18 +11,7 @@ namespace SignatureAPI.API.Controllers
         [HttpGet("signature-asset-types")]
         public IActionResult GetSignatureTypes()
         {
-            return Ok(Enum.GetValues<SignatureType>()
-                .Select(x => new
-                {
-                    Value = (int)x,
-                    Name = x.ToString()
-                }));
-        }
-
-        [HttpGet("signature-link-types")]
-        public IActionResult GetSignatureLinkTypes()
-        {
-            return Ok(Enum.GetValues<SignatureLinkType>()
+            return Ok(Enum.GetValues<ComponentType>()
                 .Select(x => new
                 {
                     Value = (int)x,

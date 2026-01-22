@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SignatureAPI.Domain.Entities.Common;
 using SignatureAPI.Domain.Entities.Company;
+using SignatureAPI.Domain.Entities.CompanyComponent;
 using SignatureAPI.Domain.Entities.Identity;
-using SignatureAPI.Domain.Entities.Signature;
 
 
 namespace SignatureAPI.Persistence.Context
@@ -14,9 +14,7 @@ namespace SignatureAPI.Persistence.Context
         public SignatureAPIDbContext(DbContextOptions<SignatureAPIDbContext> options) : base(options) { }
 
         public DbSet<Company> Companies{ get; set; }
-        public DbSet<Signature> Signatures { get; set; }
-        public DbSet<SignatureAsset> SignatureAssets { get; set; }
-        public DbSet<SignatureLink> SignatureLinks { get; set; }
+        public DbSet<CompanyComponent> CompanyComponents{ get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -76,24 +74,10 @@ namespace SignatureAPI.Persistence.Context
             });
 
             modelBuilder.Entity<Company>()
-                .HasOne(c=>c.Signature)
+                .HasMany(c=>c.CompanyComponents)
                 .WithOne(s => s.Company)
-                .HasForeignKey<Signature>(s=>s.CompanyId);
-
-            modelBuilder.Entity<SignatureAsset>()
-                .HasOne(a=>a.Signature)
-                .WithMany(s=>s.SignatureAssets)
-                .HasForeignKey(a => a.SignatureId)
+                .HasForeignKey(s=>s.CompanyId)
                 .OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<SignatureLink>()
-                .HasOne(l => l.Signature)
-                .WithMany(s => s.SignatureLinks)
-                .HasForeignKey(l => l.SignatureId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-
-
         }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
