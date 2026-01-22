@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SignatureAPI.Application.DTOs.Company;
 
 namespace SignatureAPI.Application.Features.Queries.CompanyComponent.GetAllCompanyComponent
 {
     public class GetAllCompanyComponentResponse
     {
+        public List<ResultCompanyComponentDTO> CompanyComponentDTOs{ get; set; }
     }
 }
