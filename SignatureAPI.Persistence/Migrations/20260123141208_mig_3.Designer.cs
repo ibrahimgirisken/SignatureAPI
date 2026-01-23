@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SignatureAPI.Persistence.Context;
 
@@ -10,9 +11,11 @@ using SignatureAPI.Persistence.Context;
 namespace SignatureAPI.Persistence.Migrations
 {
     [DbContext(typeof(SignatureAPIDbContext))]
-    partial class SignatureAPIDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260123141208_mig_3")]
+    partial class mig_3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

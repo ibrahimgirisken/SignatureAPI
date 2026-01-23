@@ -74,10 +74,35 @@ namespace SignatureAPI.Persistence.Context
             });
 
             modelBuilder.Entity<Company>()
+                .HasKey(c => c.Id);
+
+            modelBuilder.Entity<Company>(entity =>
+            {
+                entity.Property(c => c.CompanyName).IsRequired().HasMaxLength(200);
+                entity.Property(c => c.Phone).HasMaxLength(50);
+                entity.Property(c => c.Fax).HasMaxLength(50);
+                entity.Property(c => c.Address).HasMaxLength(500);
+                entity.Property(c => c.KdvText).HasMaxLength(1000);
+                entity.Property(c => c.InformationText).HasMaxLength(2000);
+                entity.Property(c => c.EnvironmentText).HasMaxLength(150);
+            });
+
+            modelBuilder.Entity<Company>()
                 .HasMany(c=>c.CompanyComponents)
                 .WithOne(s => s.Company)
                 .HasForeignKey(s=>s.CompanyId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<CompanyComponent>()
+                .HasKey(c => c.Id);
+
+            modelBuilder.Entity<CompanyComponent>(entity =>
+            {
+                entity.Property(c => c.Label).HasMaxLength(100);
+                entity.Property(c => c.ImageUrl).HasMaxLength(200);
+                entity.Property(c => c.TargetUrl).HasMaxLength(200);
+                entity.Property(c => c.Type).IsRequired();
+            });
 
             modelBuilder.Entity<CompanyComponent>()
                 .HasOne(c=>c.Company)
