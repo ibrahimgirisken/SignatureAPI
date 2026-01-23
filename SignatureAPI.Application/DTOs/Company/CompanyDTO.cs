@@ -1,4 +1,6 @@
 ﻿
+using SignatureAPI.Application.DTOs.CompanyComponent;
+
 namespace SignatureAPI.Application.DTOs.Company
 {
     public class CompanyDTO

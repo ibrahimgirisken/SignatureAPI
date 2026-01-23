@@ -1,4 +1,4 @@
-﻿using SignatureAPI.Application.DTOs.Company;
+﻿using SignatureAPI.Application.DTOs.CompanyComponent;
 
 namespace SignatureAPI.Application.Features.Queries.CompanyComponent.GetAllCompanyComponent
 {

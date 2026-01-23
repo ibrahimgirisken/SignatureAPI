@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using SignatureAPI.Application.DTOs.Company;
+using SignatureAPI.Application.DTOs.CompanyComponent;
 using SignatureAPI.Application.Repositories.CompanyComponent;
 
 namespace SignatureAPI.Application.Features.Queries.CompanyComponent.GetAllCompanyComponent
