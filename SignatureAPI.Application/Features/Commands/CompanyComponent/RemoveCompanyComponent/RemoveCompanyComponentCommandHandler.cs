@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace SignatureAPI.Application.Features.Commands.CompanyComponent.RemoveCompanyComponent
 {
-    public class RemoveCompanyComponentHandler : IRequestHandler<RemoveCompanyComponentRequest, RemoveCompanyComponentResponse>
+    public class RemoveCompanyComponentCommandHandler : IRequestHandler<RemoveCompanyComponentCommandRequest, RemoveCompanyComponentCommandResponse>
     {
         readonly ICompanyComponentWriteRepository _companyComponentWriteRepository;
-        public async Task<RemoveCompanyComponentResponse> Handle(RemoveCompanyComponentRequest request, CancellationToken cancellationToken)
+        public async Task<RemoveCompanyComponentCommandResponse> Handle(RemoveCompanyComponentCommandRequest request, CancellationToken cancellationToken)
         {
             await _companyComponentWriteRepository.RemoveAsync(request.Id);
             return new();

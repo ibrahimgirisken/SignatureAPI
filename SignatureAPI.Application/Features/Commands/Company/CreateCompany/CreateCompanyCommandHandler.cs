@@ -17,10 +17,11 @@ namespace SignatureAPI.Application.Features.Commands.Company.CreateCompany
 
         async Task<CreateCompanyCommandResponse> IRequestHandler<CreateCompanyCommandRequest, CreateCompanyCommandResponse>.Handle(CreateCompanyCommandRequest request, CancellationToken cancellationToken)
         {
-            var company=_mapper.Map<Domain.Entities.Company.Company>(request);
+            var company=_mapper.Map<Domain.Entities.Company.Company>(request.CreateCompanyDTO);
             await _companyWriteRepository.AddAsync(company);
             await _companyWriteRepository.SaveAsync();
-            return new();
+            return new() { 
+            };
         }
     }
 }

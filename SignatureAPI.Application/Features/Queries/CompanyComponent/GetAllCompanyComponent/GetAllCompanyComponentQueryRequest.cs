@@ -2,7 +2,7 @@
 
 namespace SignatureAPI.Application.Features.Queries.CompanyComponent.GetAllCompanyComponent
 {
-    public class GetAllCompanyComponentRequest:IRequest<GetAllCompanyComponentResponse>
+    public class GetAllCompanyComponentQueryRequest:IRequest<GetAllCompanyComponentQueryResponse>
     {
     }
 }
