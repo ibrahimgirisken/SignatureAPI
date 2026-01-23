@@ -18,8 +18,7 @@ namespace SignatureAPI.Application.Mapping
 
             CreateMap<CompanyComponent, CompanyComponentDTO>();
             CreateMap<CreateCompanyComponentDTO, CompanyComponent>()
-                .ForMember(x => x.Company, opt => opt.Ignore())
-                .ForMember(x => x.CompanyId, opt => opt.Ignore());
+                .ForMember(x => x.Company, opt => opt.Ignore());
 
             CreateMap<UpdateCompanyComponentDTO, CompanyComponent>()
                 .ForMember(x => x.Company, opt => opt.Ignore());

@@ -1,5 +1,4 @@
 ﻿using SignatureAPI.Domain.Entities.CompanyComponent.Enums;
-using System.ComponentModel.DataAnnotations;
 
 namespace SignatureAPI.Application.DTOs.CompanyComponent
 {
