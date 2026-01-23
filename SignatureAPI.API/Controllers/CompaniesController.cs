@@ -4,6 +4,7 @@ using SignatureAPI.Application.Features.Commands.Company.CreateCompany;
 using SignatureAPI.Application.Features.Commands.Company.RemoveCompany;
 using SignatureAPI.Application.Features.Commands.Company.UpdateCompany;
 using SignatureAPI.Application.Features.Queries.Company.GetAllCompany;
+using SignatureAPI.Application.Features.Queries.Company.GetByIdCompany;
 using System.Net;
 
 namespace SignatureAPI.API.Controllers
@@ -23,6 +24,13 @@ namespace SignatureAPI.API.Controllers
         public async Task<IActionResult> GetAllCompanies([FromQuery]GetAllCompanyQueryRequest getAllCompanyQueryRequest)
         {
             GetAllCompanyQueryResponse response= await _mediator.Send(getAllCompanyQueryRequest);
+            return Ok(response);
+        }
+
+        [HttpGet("getbyid")]
+        public async Task<IActionResult> GetCompanyById([FromQuery] GetByIdCompanyQueryRequest getByIdCompany)
+        {
+            GetByIdCompanyQueryResponse response = await _mediator.Send(getByIdCompany);
             return Ok(response);
         }
 
