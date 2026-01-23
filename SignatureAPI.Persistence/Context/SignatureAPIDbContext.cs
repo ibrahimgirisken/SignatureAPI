@@ -78,6 +78,12 @@ namespace SignatureAPI.Persistence.Context
                 .WithOne(s => s.Company)
                 .HasForeignKey(s=>s.CompanyId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<CompanyComponent>()
+                .HasOne(c=>c.Company)
+                .WithMany(Company => Company.CompanyComponents)
+                .HasForeignKey(c => c.CompanyId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
