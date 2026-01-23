@@ -1,7 +1,12 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace SignatureAPI.Application.DTOs.Company
 {
-    public class ResultCompanyDTO
+    public class UpdateCompanyDTO
     {
         public Guid Id { get; set; }
         public string? CompanyName { get; set; }
@@ -11,7 +16,5 @@ namespace SignatureAPI.Application.DTOs.Company
         public string? KdvText { get; set; }
         public string? InformationText { get; set; }
         public string? EnvironmentText { get; set; }
-        public List<ResultCompanyComponentDTO> CompanyComponents { get; set; } = new();
-
     }
 }

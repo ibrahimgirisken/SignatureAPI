@@ -18,7 +18,7 @@ namespace SignatureAPI.Application.Features.Queries.Company.GetAllCompany
         public async Task<GetAllCompanyQueryResponse> Handle(GetAllCompanyQueryRequest request, CancellationToken cancellationToken)
         {
             var companies =_companyReadRepository.GetAll();
-            var companiesDto=_mapper.Map<List<ResultCompanyDTO>>(companies);
+            var companiesDto=_mapper.Map<List<CompanyDTO>>(companies);
             return new()
             {
                 Companies = companiesDto

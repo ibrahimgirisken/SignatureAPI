@@ -1,9 +1,15 @@
 ﻿using SignatureAPI.Domain.Entities.CompanyComponent.Enums;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SignatureAPI.Application.DTOs.Company
 {
-    public class ResultCompanyComponentDTO
+    public class UpdateCompanyComponentDTO
     {
+        public Guid Id { get; set; }
         public string? Label { get; set; }
         public string? ImageUrl { get; set; }
         public string? TargetUrl { get; set; }

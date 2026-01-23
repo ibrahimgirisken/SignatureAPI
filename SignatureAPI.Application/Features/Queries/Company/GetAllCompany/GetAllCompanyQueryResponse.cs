@@ -4,6 +4,6 @@ namespace SignatureAPI.Application.Features.Queries.Company.GetAllCompany
 {
     public class GetAllCompanyQueryResponse
     {
-        public List<ResultCompanyDTO> Companies{ get; set; }
+        public List<CompanyDTO> Companies{ get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace SignatureAPI.Application.Features.Queries.CompanyComponent.GetAllCompa
         public async Task<GetAllCompanyComponentResponse> Handle(GetAllCompanyComponentRequest request, CancellationToken cancellationToken)
         {
             var companyComponents = _companyComponentReadRepository.GetAll();
-            var response=_mapper.Map<List<ResultCompanyComponentDTO>>(companyComponents);
+            var response=_mapper.Map<List<CompanyComponentDTO>>(companyComponents);
             return new()
             {
                CompanyComponentDTOs= response
