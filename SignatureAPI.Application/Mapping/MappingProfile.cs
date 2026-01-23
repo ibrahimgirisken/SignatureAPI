@@ -22,8 +22,7 @@ namespace SignatureAPI.Application.Mapping
                 .ForMember(x => x.CompanyId, opt => opt.Ignore());
 
             CreateMap<UpdateCompanyComponentDTO, CompanyComponent>()
-                .ForMember(x => x.Company, opt => opt.Ignore())
-                .ForMember(x => x.CompanyId, opt => opt.Ignore());
+                .ForMember(x => x.Company, opt => opt.Ignore());
 
             CreateMap<CreateUserCommandRequest,CreateUserDTO>().ReverseMap();
         }

@@ -52,8 +52,11 @@ namespace SignatureAPI.Persistence.Repositories
 
         public bool Update(T model)
         {
-           EntityEntry entityEntry = Table.Update(model);
-            return entityEntry.State == EntityState.Modified;
+            var entry=_context.Entry(model);
+            if(entry.State==EntityState.Detached)
+                Table.Attach(model);
+            entry.State = EntityState.Modified;
+            return true;
         }
         public async Task<int> SaveAsync()
         {

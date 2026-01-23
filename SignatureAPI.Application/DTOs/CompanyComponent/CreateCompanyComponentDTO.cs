@@ -1,9 +1,5 @@
 ﻿using SignatureAPI.Domain.Entities.CompanyComponent.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace SignatureAPI.Application.DTOs.CompanyComponent
 {
@@ -16,6 +12,7 @@ namespace SignatureAPI.Application.DTOs.CompanyComponent
         public ComponentType Type { get; set; }
         public int Order { get; set; }
         public bool IsActive { get; set; } = true;
+        [Required]
         public Guid CompanyId { get; set; }
 
     }

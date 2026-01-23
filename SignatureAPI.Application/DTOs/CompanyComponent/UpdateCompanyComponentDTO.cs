@@ -18,6 +18,5 @@ namespace SignatureAPI.Application.DTOs.CompanyComponent
         public int Order { get; set; }
         public bool IsActive { get; set; } = true;
         public Guid CompanyId { get; set; }
-
     }
 }

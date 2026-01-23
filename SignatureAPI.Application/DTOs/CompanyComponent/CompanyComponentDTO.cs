@@ -1,10 +1,12 @@
 ﻿using SignatureAPI.Domain.Entities.CompanyComponent.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace SignatureAPI.Application.DTOs.CompanyComponent
 {
     public class CompanyComponentDTO
     {
         public Guid Id { get; set; }
+        public Guid CompanyId { get; set; }
         public string? Label { get; set; }
         public string? ImageUrl { get; set; }
         public string? TargetUrl { get; set; }
