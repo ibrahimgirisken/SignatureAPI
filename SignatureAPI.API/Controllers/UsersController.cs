@@ -22,7 +22,7 @@ namespace SignatureAPI.API.Controllers
         public async Task<IActionResult> GetAllUsers([FromQuery]GetAllUserQueryRequest getAllUserQueryRequest)
         {
             GetAllUserQueryResponse response=await _mediator.Send(getAllUserQueryRequest);
-            return Ok(response);
+            return Ok(response.UserListDTO);
         }
 
         [HttpPost]

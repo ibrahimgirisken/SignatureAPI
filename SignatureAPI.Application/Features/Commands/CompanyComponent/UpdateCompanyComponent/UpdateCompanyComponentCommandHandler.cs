@@ -19,8 +19,8 @@ namespace SignatureAPI.Application.Features.Commands.CompanyComponent.UpdateComp
 
         public async Task<UpdateCompanyComponentCommandResponse> Handle(UpdateCompanyComponentCommandRequest request, CancellationToken cancellationToken)
         {
-            var companyComponent = await _companyComponentReadRepository.GetByIdAsync(request.UpdateCompanyComponentDTO.Id);
-            _mapper.Map(request.UpdateCompanyComponentDTO, companyComponent);
+            var companyComponent = await _companyComponentReadRepository.GetByIdAsync(request.Id);
+            _mapper.Map(request, companyComponent);
             await _companyComponentWriteRepository.SaveAsync();
             return new();
         }

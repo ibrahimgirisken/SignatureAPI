@@ -31,7 +31,7 @@ namespace SignatureAPI.API.Controllers
         public async Task<IActionResult> GetCompanyById([FromQuery] GetByIdCompanyQueryRequest getByIdCompany)
         {
             GetByIdCompanyQueryResponse response = await _mediator.Send(getByIdCompany);
-            return Ok(response);
+            return Ok(response.CompanyDTO);
         }
 
         [HttpPost("add")]

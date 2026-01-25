@@ -23,14 +23,14 @@ namespace SignatureAPI.API.Controllers
         public async Task<IActionResult> GetAllCompanyComponent([FromQuery] GetAllCompanyComponentQueryRequest getAllCompanyComponentRequest)
         {
             GetAllCompanyComponentQueryResponse response = await _mediator.Send(getAllCompanyComponentRequest);
-            return Ok(response);
+            return Ok(response.CompanyComponentDTOs);
         }
 
         [HttpGet("getbyid")]
         public async Task<IActionResult> GetByIdCompanyComponent([FromQuery] GetByIdCompanyComponentQueryRequest companyComponentQueryRequest)
         {
             GetByIdCompanyComponentQueryResponse response = await _mediator.Send(companyComponentQueryRequest);
-            return Ok(response);
+            return Ok(response.CompanyComponentDTO);
         }
 
         [HttpPost("add")]

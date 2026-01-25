@@ -17,9 +17,9 @@ namespace SignatureAPI.Application.Features.Commands.CompanyComponent.CreateComp
 
         public async Task<CreateCompanyComponentCommandResponse> Handle(CreateCompanyComponentCommandRequest request, CancellationToken cancellationToken)
         {
-            if(request.CreateCompanyComponentDTO.CompanyId == Guid.Empty)
+            if(request.CompanyId == Guid.Empty)
                 throw new Exception("CompanyId is required");
-            var CompanyComponent= _mapper.Map<Domain.Entities.CompanyComponent.CompanyComponent>(request.CreateCompanyComponentDTO);
+            var CompanyComponent= _mapper.Map<Domain.Entities.CompanyComponent.CompanyComponent>(request);
             await _companyComponentWriteRepository.AddAsync(CompanyComponent);
             await _companyComponentWriteRepository.SaveAsync();
             return new();

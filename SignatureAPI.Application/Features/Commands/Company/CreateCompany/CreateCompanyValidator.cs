@@ -6,7 +6,7 @@ namespace SignatureAPI.Application.Features.Commands.Company.CreateCompany
     {
         public CreateCompanyValidator()
         {
-            RuleFor(x=>x.CreateCompanyDTO.CompanyName).NotEmpty();
+            RuleFor(x=>x.CompanyName).NotEmpty();
         }
     }
 }

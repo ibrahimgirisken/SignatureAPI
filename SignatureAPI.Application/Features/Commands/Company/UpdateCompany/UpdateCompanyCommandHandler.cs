@@ -19,8 +19,8 @@ namespace SignatureAPI.Application.Features.Commands.Company.UpdateCompany
 
         async Task<UpdateCompanyCommandResponse> IRequestHandler<UpdateCompanyCommandRequest, UpdateCompanyCommandResponse>.Handle(UpdateCompanyCommandRequest request, CancellationToken cancellationToken)
         {
-            var company=await _companyReadRepository.GetByIdAsync(request.UpdateCompanyDTO.Id);
-            _mapper.Map(request.UpdateCompanyDTO,company);
+            var company=await _companyReadRepository.GetByIdAsync(request.Id);
+            _mapper.Map(request,company);
             await _companyWriteRepository.SaveAsync();
             return new();
         }
