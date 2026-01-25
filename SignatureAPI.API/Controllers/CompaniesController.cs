@@ -24,7 +24,7 @@ namespace SignatureAPI.API.Controllers
         public async Task<IActionResult> GetAllCompanies([FromQuery]GetAllCompanyQueryRequest getAllCompanyQueryRequest)
         {
             GetAllCompanyQueryResponse response= await _mediator.Send(getAllCompanyQueryRequest);
-            return Ok(response);
+            return Ok(response.Companies);
         }
 
         [HttpGet("getbyid")]
