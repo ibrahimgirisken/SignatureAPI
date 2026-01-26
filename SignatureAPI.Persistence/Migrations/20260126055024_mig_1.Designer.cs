@@ -11,7 +11,7 @@ using SignatureAPI.Persistence.Context;
 namespace SignatureAPI.Persistence.Migrations
 {
     [DbContext(typeof(SignatureAPIDbContext))]
-    [Migration("20260124115013_mig_1")]
+    [Migration("20260126055024_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />

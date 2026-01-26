@@ -5,6 +5,8 @@ using SignatureAPI.Application.DTOs.User;
 using SignatureAPI.Application.Features.Commands.AppUser.CreateUser;
 using SignatureAPI.Application.Features.Commands.Company.CreateCompany;
 using SignatureAPI.Application.Features.Commands.Company.UpdateCompany;
+using SignatureAPI.Application.Features.Commands.CompanyComponent.CreateCompanyComponent;
+using SignatureAPI.Application.Features.Commands.CompanyComponent.UpdateCompanyComponent;
 using SignatureAPI.Domain.Entities.Company;
 using SignatureAPI.Domain.Entities.CompanyComponent;
 
@@ -19,10 +21,10 @@ namespace SignatureAPI.Application.Mapping
             CreateMap<UpdateCompanyCommandRequest,Company>().ForMember(dest=>dest.CompanyComponents, opt=>opt.Ignore());
 
             CreateMap<CompanyComponent, CompanyComponentDTO>();
-            CreateMap<CreateCompanyCommandRequest, CompanyComponent>()
+            CreateMap<CreateCompanyComponentCommandRequest, CompanyComponent>()
                 .ForMember(x => x.Company, opt => opt.Ignore());
 
-            CreateMap<UpdateCompanyCommandRequest, CompanyComponent>()
+            CreateMap<UpdateCompanyComponentCommandRequest, CompanyComponent>()
                 .ForMember(x => x.Company, opt => opt.Ignore());
 
             CreateMap<CreateUserCommandRequest,CreateUserDTO>().ReverseMap();
